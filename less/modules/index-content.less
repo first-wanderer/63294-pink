@@ -1,0 +1,103 @@
+.index-content {
+  text-align: center;
+  h2 {
+    margin-bottom: 10px;
+    font-size: 1.23rem;
+    font-weight: 700;
+    color: #000;
+  }
+  p {
+    margin: 0;
+    margin-bottom: 30px;
+  }
+}
+
+.s-info {
+  padding: 25px 0 30px;
+  background: @bg-c;
+  color: @color-light;
+  font-weight: 300;
+  .btn-download {
+    display: inline-block;
+    padding: 10px 35px;
+    font-size: 1.23rem;
+    font-weight: 700;
+    color: @color-light;
+    border: 3px solid @color-light;
+    border-radius: 30px;
+  }
+}
+
+.question {
+  margin-bottom: 40px;
+  font-size: 1.71rem;
+  font-weight: 300; 
+}
+
+.angle-invert {
+  background: @bg-c-invert;
+}
+
+.s-abilitys {
+  padding-top: 40px;
+}
+
+.s-reviews {
+  padding-top: 40px;
+}
+
+.slider-pagination {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    display: inline-block;
+    vertical-align: top;
+    width: 6px;
+    height: 6px;
+    margin-right: 13px;
+    border: 3px solid transparent;
+    background: @color-dark-alpha;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.price-table {
+  border-collapse: collapse;
+  text-transform: uppercase;
+  tr {
+    border-bottom: 2px solid @color-border;
+    &:first-child {
+      border-bottom: none;
+    }
+  }
+  td, th {
+    border-right: 2px solid @color-border;
+  }
+  td {
+    text-align: left;
+    background: @color-light;
+    &:nth-child(odd) {
+      padding: 22px;
+      border-right: none;
+    }
+    &:nth-child(even) {
+      padding: 18px;
+    }
+  }
+  th {
+    padding: 20px;
+    color: @color-light;
+    background: @color-dark;
+  }
+  .price-tarif {
+    font-size: 1.23rem;
+    font-weight: 700;
+  }
+  .price-rate {
+    font-size: 1.71rem;
+    font-weight: 300;
+  }
+}
