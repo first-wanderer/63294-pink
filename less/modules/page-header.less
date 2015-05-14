@@ -9,7 +9,15 @@
 }
 
 .page-nav {
-  background: @bg-c-nav;
+  .nav-wrap {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: @bg-c-nav;
+  }
+  
+  .logo-link {
+    float: left;
+  }
   .nav-menu {
     list-style: none;
     margin: 0;
@@ -20,8 +28,9 @@
       font-size: 1.23rem;
       color: @color-light;
       font-weight: 700;
+      text-transform: uppercase;
       background: @color-dark;
-      box-shadow: inset 0 1px 0 #000 , inset 0 -1px 0 rgba(255, 255, 255, .15);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15) , inset 0 -1px 0 #000;
     }
   }
 }
