@@ -18,3 +18,51 @@ a {
   color: @color-link;
   text-decoration: none;
 }
+
+input[type="checkbox"], input[type="radio"] {
+  display: none;
+  & + label {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 60px;
+    font-size: 1.29rem;
+    line-height: 40px;
+    cursor: pointer;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 35px;
+      height: 35px;
+      border: 2px solid @color-border;
+      background: @color-light;
+    }
+  }  
+}
+
+input[type="radio"] + label::before {
+  border-radius: 50%;
+}
+
+input[type="checkbox"]:checked + label::before {
+  background: @color-light url("../img/form-checkbox-checked.png") no-repeat center;
+}
+
+input[type="radio"]:checked + label::before {
+  background: @color-light url("../img/form-radio-checked.png") no-repeat center;
+}
+
+input[type="text"], input[type="date"] {
+  box-sizing: border-box;
+  padding: 10px 20px;
+  border: 2px solid @color-border;
+  background: @color-light;
+  font-size: 1.29rem;
+}
+
+input::-webkit-input-placeholder {color:@color-dark;}
+input::-moz-placeholder          {color:@color-dark;}/* Firefox 19+ */
+input:-moz-placeholder           {color:@color-dark;}/* Firefox 18- */
+input:-ms-input-placeholder      {color:@color-dark;}
