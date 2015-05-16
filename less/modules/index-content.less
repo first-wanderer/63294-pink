@@ -94,12 +94,9 @@
   td {
     text-align: left;
     background: @color-light;
+    padding: 22px;
     &:nth-child(odd) {
-      padding: 22px;
       border-right: none;
-    }
-    &:nth-child(even) {
-      padding: 18px;
     }
   }
   th {
@@ -114,5 +111,15 @@
   .price-rate {
     font-size: 1.71rem;
     font-weight: 300;
+  }
+  .option-yes, .option-no {
+    width: 26px;
+    font-size: 0;
+  }
+  .option-yes {
+    background: @color-light url('../img/icon-price-yes.png') no-repeat center center;
+  }
+  .option-no {
+    background: @color-light url('../img/icon-price-no.png') no-repeat center center;
   }
 }
