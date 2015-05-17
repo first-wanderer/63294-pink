@@ -14,12 +14,25 @@
   label {
     display: block;
     padding-left: 22px;
-    margin-bottom: 7px;
+    margin-bottom: 10px;
     color: @color-link;
     text-transform: uppercase;
   }
-  input[type="text"] {
+  input[type="text"], input[type="date"] {
     width: 100%;
+  }
+}
+
+.input-range {
+  text-align: center;
+}
+
+.label-bottom {
+  label {
+    padding-left: 0;
+    margin-bottom: 0;
+    margin-top: 10px;
+    text-align: center;
   }
 }
 
@@ -44,4 +57,98 @@
 
 .form-invert {
   background: @bg-c-invert;
+}
+
+.comp-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 15px;
+  &:last-of-type {
+    margin-bottom: 45px;
+  }
+  input {
+    width: 100%;
+  }
+  tr {
+    &:nth-child(odd) {
+      color: @color-link;
+      text-transform: uppercase;
+      td {
+        padding: 20px 0 10px;
+      }
+    }
+  }
+  .row-full {
+    td {
+      &:nth-child(1) {
+        width: 60px;
+        text-align: center;
+      }
+    }
+    .cell-title {
+      padding-left: 22px;
+    }
+    input {
+      border-radius: 0 2px 2px 0;
+    }
+  }
+  .row-part {
+    td {
+      padding-left: 60px;
+    }   
+    .cell-title {
+      padding-left: 82px;
+    } 
+  }
+  .cell-number {
+    box-sizing: border-box;
+    padding: 14px 0;
+    border: 2px solid @color-border;
+    border-right: none;
+    border-radius: 2px 0 0 2px;
+    background: @bg-c-invert;
+    font-size: 1.29rem;
+    line-height: normal;
+  }
+}
+
+.fotos-block {
+  padding: 15px 0;
+  .foto-template {
+    display: inline-block;
+    position: relative;
+  }
+  .foto-delete {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    width: 28px;
+    height: 28px;
+    border: 2px solid @color-border;
+    border-radius: 50%;
+    font-size: 0;
+    background: @color-light url('../img/form-foto-delete.png') no-repeat center;
+    z-index: 5;
+    cursor: pointer;
+  }
+  .foto-name {
+    font-size: .86rem;
+    text-transform: uppercase;
+  }
+}
+
+.form-submit {
+  padding: 45px 0 15px;
+  .form-note {
+    text-align: center;
+    text-transform: uppercase;
+    span {
+      color: @color-link;
+    }
+  }
+}
+
+.btn-submit {
+  .mixin-btn-green ();
+  margin-bottom: 40px;
 }

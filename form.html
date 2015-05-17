@@ -69,53 +69,53 @@
         </fieldset>
         <fieldset class="form-block">
           <legend class="title-block">Когда вы путешествовали? *</legend>
-          <div class="input-text">
+          <div class="input-text label-bottom">
             <input type="date" name="date-out" value="2015-04-01" required>
             <label>дата выезда</label>
           </div>
-          <div class="input-text input-range">
+          <div class="input-text input-range label-bottom">
             <input type="text" name="duration" value="10 дней" required>
             <label>продолжительность</label>
           </div>
-          <div class="input-text">
+          <div class="input-text label-bottom">
             <input type="date" name="date-in" value="2015-04-01" required>
             <label>дата возвращения</label>
           </div>
         </fieldset>
         <fieldset class="form-block form-invert">
           <legend class="title-block">Количество попутчиков *</legend>
-          <div class="input-text input-range">
+          <div class="input-text input-range border-bottom">
             <input type="text" name="comp-amount" value="2 чел" required>
           </div>
           <table class="comp-table">
-            <tr class="row-title">
+            <tr class="row-full">
               <td>№</td>
-              <td>Имя: *</td>
+              <td class="cell-title">Имя: *</td>
             </tr>
-            <tr class="row-value">
-              <td>1</td>
+            <tr class="row-full">
+              <td><div class="cell-number">1</div></td>
               <td><input type="text" name="comp-name-1" placeholder="Введите ваше имя" required></td>
             </tr>
-            <tr class="row-title">
-              <td colspan="2">Прозвище:</td>
+            <tr class="row-part">
+              <td class="cell-title" colspan="2">Прозвище:</td>
             </tr>
-            <tr class="row-value">
+            <tr class="row-part">
               <td colspan="2"><input type="text" name="comp-byname-1" placeholder="Ну как же без этого!"></td>
             </tr>
           </table>
           <table class="comp-table">
-            <tr class="row-title">
+            <tr class="row-full">
               <td>№</td>
-              <td>Имя: *</td>
+              <td class="cell-title">Имя: *</td>
             </tr>
-            <tr class="row-value">
-              <td>2</td>
+            <tr class="row-full">
+              <td><div class="cell-number">2</div></td>
               <td><input type="text" name="comp-name-2" placeholder="Введите ваше имя" required></td>
             </tr>
-            <tr class="row-title">
-              <td colspan="2">Прозвище:</td>
+            <tr class="row-part">
+              <td class="cell-title" colspan="2">Прозвище:</td>
             </tr>
-            <tr class="row-value">
+            <tr class="row-part">
               <td colspan="2"><input type="text" name="comp-byname-2" placeholder="Ну как же без этого!"></td>
             </tr>
           </table>
@@ -160,7 +160,7 @@
         </fieldset>
         <div class="form-submit">
           <button type="submit" class="btn-submit">Отправить форму</button>
-          <div class="form-note">* — обязательные поля</div>
+          <div class="form-note"><span>*</span> — обязательные поля</div>
         </div>
       </div>
     </form>
