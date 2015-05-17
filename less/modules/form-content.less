@@ -149,6 +149,12 @@
 }
 
 .btn-submit {
-  .mixin-btn-green ();
+  .mixin-btn ();
   margin-bottom: 40px;
+  color: @color-light;
+  background-color: @color-btn;
+}
+
+.btn-close {
+  &:extend(.btn-submit all);
 }

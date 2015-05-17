@@ -18,18 +18,25 @@
   }
 }
 
-.mixin-btn-green () {
+.mixin-btn () {
   width: 100%;
   padding: 20px 0; 
   text-transform: uppercase;
-  color: @color-light;
   font-family: @font;
   font-weight: 700; 
   font-size: 1.29rem;
   line-height: 1;  
   text-align: center;
-  background-color: @color-btn;  
   border: none;
   border-radius: 2px;
   outline: none;
+}
+
+.mixin-hover-color () {
+  &:hover {
+    color: @color-link;
+  }
+  &:active {
+    color: @color-link-alpha;
+  }
 }

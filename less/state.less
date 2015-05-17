@@ -1,12 +1,107 @@
+.page-nav {
+	a {
+		.mixin-hover-color ();
+	}
+}
+
+.btn-download {
+	.mixin-hover-color ();
+	&:hover {
+		background: @color-light;
+	}
+}
+
 .slider-pagination {
+	li {
+		&:hover {
+			background-color: fadein(@color-dark-alpha, 30%);
+		}
+		&:active {
+			background-color: fadeout(@color-dark-alpha, 20%);
+		}
+	}
   .is-slide-active {
-    background: transparent;
+    background-color: transparent;
     border-color: @color-dark;
+    &:hover, &:active {
+    	background-color: transparent;
+    }
   }
 }
 
 .blog-pagination {
+	a {
+		&:hover {
+			border-color: @color-dark;
+		}
+		&:active {
+			color: @color-light;
+			background-color: @color-dark;
+		}
+	}
   .is-blog-active {
     border-color: @color-link;
+    &:hover {
+			border-color: @color-link;
+		}
+		&:active {
+			color: @color-dark;
+			background-color: transparent;
+		}
   }
+}
+
+input[type="checkbox"], input[type="radio"] {
+  & + label {
+  	&:hover::before {
+	    border-color: @color-dark;
+	  }
+	  &:active::before {
+	    border-color: @color-link;
+	  }
+  }
+}
+
+input[type="text"], input[type="date"] {
+	&:hover {
+		border-color: @color-dark;
+	}
+	&:focus {
+		outline: none;
+		border-color: @color-link;
+	}
+}
+
+.btn-submit {
+	&:hover {
+		background-color: @color-btn-hover;
+	}
+	&:active {
+		color: fade(@color-light, 30%);
+	}
+}
+
+.footer-contacts {
+	a {
+		&:hover {
+			color: @color-dark;
+			text-decoration: underline;
+		}
+		&:active {
+			color: @color-dark-alpha;
+			text-decoration: none;
+		}
+	}
+}
+
+.footer-social {
+	a {
+		.mixin-hover-color ();
+		&:hover {
+			border-color: @color-dark;
+		}
+		&:active {
+			border-color: @color-dark-alpha10;
+		}
+	}
 }
