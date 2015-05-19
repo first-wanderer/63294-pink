@@ -20,7 +20,111 @@
   }
 }
 
-.l-footer-inner {
-  width: 200px;
-  margin: 0 auto;
+.s-abilitys {
+  .flex-container {
+    @media (min-width: @screen_md) {
+      display: flex;
+      flex-direction: row-reverse;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      & > div {
+        width: 50%;
+      }      
+    }
+  }
+}
+
+.l-effect-l {
+  float: left;
+  width: 50%;
+}
+
+.l-effect-r {
+  float: right;
+  width: 50%;
+  padding: 40px 0 50px;
+}
+
+.slider-reviews {
+  .flex-container {
+    @media (min-width: @screen_md) {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      .review-text {
+        order: 1;
+      }
+      .review-title {
+        order: 2;
+      }
+      .review-subtitle {
+        order: 3;
+      }
+    }
+  }
+}
+
+.post-footer {
+  .flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    li {
+      flex-grow: 1;
+      display: block;
+      margin-right: 0;
+    }
+    .prev {
+      margin-right: 20px;
+    }
+    .back {
+      width: 100%;
+    }
+    @media (min-width: @screen_md) {
+      .prev {
+        order: 1;
+      }
+      .back {
+        order: 2;
+        flex-grow: 2;
+        width: auto;
+        margin-right: 20px;
+      }
+      .next {
+        order: 3;
+      }
+    }
+  }
+}
+
+.footer-contacts {
+  .flex-container {
+    @media (min-width: @screen_md) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      & > div {
+        width: 50%;
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+
+.footer-inner {
+  .flex-container {
+    @media (min-width: @screen_md) {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+      .footer-logo, .footer-social, .footer-create {
+        flex-basis: auto;
+        flex-grow: 0;
+      }
+    }
+  }
 }

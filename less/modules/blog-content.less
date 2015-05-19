@@ -1,8 +1,22 @@
+.blog-content {
+  padding-top: 15px;
+  @media (min-width: @screen_md) {
+    padding-top: 50px;
+  }
+}
+
+
 .blog-item {
-  padding: 25px 0;
+  padding: 10px 0;
   border-bottom: 1px solid @color-border;
   &:last-of-type {
     border-bottom: none;
+  }
+  @media (min-width: @screen_md) {
+    padding: 20px 0;
+    margin-left: 60px;
+    margin-right: 60px;
+    border-bottom-style: dotted;
   }
 }
 
@@ -10,6 +24,10 @@
   margin-bottom: 10px;
   font-size: 1.29rem;
   font-weight: 700;
+  @media (min-width: @screen_md) {
+    font-size: 1.93rem;
+    line-height: 1.11;
+  }
 }
 
 .blog-date {
@@ -17,9 +35,17 @@
   font-size: .86rem;
   color: @color-link;
   text-transform: uppercase;
+  @media (min-width: @screen_md) {
+    font-size: 1rem;
+  }
 }
 
 .blog-text {
   margin: 0;
+  margin-bottom: 10px;
   line-height: 1.93;
+  @media (min-width: @screen_md) {
+    margin-bottom: 20px;
+    font-size: 1.29rem;
+  }
 }

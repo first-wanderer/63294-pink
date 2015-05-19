@@ -12,22 +12,79 @@
   }
 }
 
-.angle-invert {
-  padding-top: 40px;
+.angle-invert {  
   background: @bg-c-invert;
 }
 
 .s-abilitys {
   padding-top: 40px;
+  .question {
+    &:first-child {
+      @media (min-width: @screen_md) {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .ability-wrap {
+    padding-top: 80px;
+  }
+  .ability {
+    @media (min-width: @screen_md) {
+      text-align: left;
+    }    
+  }
   .ability-descr {
     line-height: 1.71;
+  }  
+  .ability-hello {
+    vertical-align: bottom;
+  }
+}
+
+.s-effect {
+  display: none;
+  padding: 55px 0 30px;
+  text-align: left;
+  @media (min-width: @screen_md) {
+    display: block;
+  }
+  .effect-title {
+    margin-bottom: 15px;
+    font-size: 2.14rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: @color-black;
+  }
+  .effect-descr {
+    margin-bottom: 15px;
+    line-height: 1.71;
+  }
+  .effect-link {
+    text-decoration: underline;
   }
 }
 
 .s-reviews {
   padding : 40px 0;
+  .review-title {
+    @media (min-width: @screen_md) {
+      margin-top: 0;
+      font-size: 1.43rem;
+    }    
+  }
+  .review-subtitle {
+    display: none;
+    margin-bottom: 35px;
+    @media (min-width: @screen_md) {
+      display: block;
+    }
+  }
   .review-text {
     line-height: 2.14;
+    @media (min-width: @screen_md) {
+      font-size: 1.29rem;
+      line-height: 1.66;
+    }
   }
 }
 
@@ -54,12 +111,23 @@
 
 .s-price {
   padding : 40px 0;
+  .slider-price {
+    @media (min-width: @screen_md) {
+      padding-left: 40px;
+      padding-right: 40px;
+      .slider-pagination {
+        display: none;
+      }
+    }
+  }
 }
 
 .price-table {
   border-collapse: collapse;
   text-transform: uppercase;
   margin-bottom: 40px;
+  margin-right: auto;
+  margin-left: auto;
   tr {
     border-bottom: 2px solid @color-border;
     &:first-child {
@@ -73,14 +141,34 @@
     text-align: left;
     background: @color-light;
     padding: 22px;
-    &:nth-child(odd) {
+    &:nth-child(even) {
       border-right: none;
+      @media (min-width: @screen_md) {
+        font-size: 0;
+        padding: 0;
+        width: 0;
+      }
+    }
+    &:nth-child(odd) {
+      @media (min-width: @screen_md) {
+        width: 25%;
+      }
+    }
+    &:first-child {
+      border: 2px solid @color-border;
     }
   }
   th {
     padding: 20px;
     color: @color-light;
     background: @color-dark;
+    &:first-child {
+      border-right: none;
+      background: transparent;
+    }
+    &:last-child {
+      border-right: none;
+    }
   }
   .price-tarif {
     font-size: 1.29rem;

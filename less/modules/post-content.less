@@ -1,20 +1,45 @@
 .post-header {
+  position: relative;
   padding-top: 35px;
   padding-bottom: 25px;
   margin-bottom: 35px;
   text-align: center;
   border-bottom: 1px solid @color-border;  
+  @media (min-width: @screen_md) {
+    border-bottom-style: dotted;
+  }
   .blog-title {
     margin-top: 0;
-    font-size: 30px;
+    font-size: 2.14rem;
+    line-height: 1.2;
+    @media (min-width: @screen_md) {
+      font-size: 3.57rem;
+    }
   }
   .blog-text {
     font-size: 1.14rem;
     line-height: 1.69;
+    @media (min-width: @screen_md) {
+      font-size: 1.71rem;
+    }
+  }
+  .blog-date {
+    @media (min-width: @screen_md) {
+      position: absolute;
+      margin-bottom: 0;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0 20px;
+      background-color: @color-light;
+    }
   }
 }
 
 .post-body {
+  @media (min-width: @screen_md) {
+    font-size: 1.29rem;
+  }
   h3 {
     margin: 0;
     margin-bottom: 25px;
@@ -22,6 +47,9 @@
     font-size: 1.29rem;
     font-weight: 700;
     text-transform: uppercase;
+    @media (min-width: @screen_md) {
+      font-size: 1.71rem;
+    }
   }
   p {
     margin: 0;
