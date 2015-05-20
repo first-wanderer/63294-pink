@@ -98,6 +98,18 @@
   }
 }
 
+.flex-form-md {
+  @media (min-width: @screen_md) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    & > div {
+      width: 48%;
+    }      
+  }
+}
+
 .footer-contacts {
   .flex-container {
     @media (min-width: @screen_md) {
@@ -124,6 +136,7 @@
       .footer-logo, .footer-social, .footer-create {
         flex-basis: auto;
         flex-grow: 0;
+        display: block;
       }
     }
   }

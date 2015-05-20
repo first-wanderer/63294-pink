@@ -112,6 +112,7 @@
 .s-price {
   padding : 40px 0;
   .slider-price {
+    overflow: hidden;
     @media (min-width: @screen_md) {
       padding-left: 40px;
       padding-right: 40px;
@@ -125,9 +126,14 @@
 .price-table {
   border-collapse: collapse;
   text-transform: uppercase;
+  position: relative;
   margin-bottom: 40px;
   margin-right: auto;
   margin-left: auto;
+  @media (max-width: (@screen_md - 1)) {
+    width: 270%;
+    left: -85%;
+  }
   tr {
     border-bottom: 2px solid @color-border;
     &:first-child {
@@ -156,6 +162,9 @@
     }
     &:first-child {
       border: 2px solid @color-border;
+      @media (max-width: (@screen_md - 1)) {
+        display: none;
+      }
     }
   }
   th {
@@ -165,6 +174,9 @@
     &:first-child {
       border-right: none;
       background: transparent;
+      @media (max-width: (@screen_md - 1)) {
+        display: none;
+      }
     }
     &:last-child {
       border-right: none;

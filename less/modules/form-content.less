@@ -1,12 +1,18 @@
 .form-noset{
   padding-top: 35px;
   padding-bottom: 40px;
+  @media (min-width: @screen_md) {
+    padding-top: 80px;
+  }
   .conditions {
     text-align: center;
     line-height: 2.14;
     margin-bottom: 45px;
+    @media (min-width: @screen_md) {
+      font-size: 1.29rem;
+      line-height: 1.67;
+    }
   }
-
 }
 
 .input-text {
@@ -23,8 +29,12 @@
   }
 }
 
-.input-range {
-  text-align: center;
+.input-range.border-bottom {
+  input {
+    @media (min-width: @screen_md) {
+      width: 50%;
+    }
+  }
 }
 
 .label-bottom {
@@ -45,6 +55,14 @@
   margin-right: -20px;
   padding: 70px 20px 10px;
   border: 2px solid transparent;
+  @media (min-width: @screen_md) {
+    padding: 40px 60px 20px;
+    margin-left: 0;
+    margin-right: 0;
+    border-color: @color-border;
+    border-radius: 2px;
+    margin-bottom: 65px;
+  }
   .title-block {
     position: relative;
     top: 50px;
@@ -52,11 +70,21 @@
     text-transform: uppercase;
     color: @color-link;
     text-align: center;
+    @media (min-width: @screen_md) {
+      top: 0;
+      margin: 0;
+      padding-left: 20px;
+      padding-right: 20px;
+      background: @color-light;
+    }
   }
 }
 
 .form-invert {
   background: @bg-c-invert;
+  @media (min-width: @screen_md) {
+    background: @color-light;
+  }
 }
 
 .comp-table {
@@ -84,20 +112,45 @@
         width: 60px;
         text-align: center;
       }
+      &:nth-child(2) {
+        @media (min-width: @screen_md) {
+          padding: 0 20px;
+        }
+      }
+      &:nth-child(3) {
+        width: 100px;
+        text-align: right;
+        @media (max-width: (@screen_md - 1)) {
+          display: none;
+        }
+      }
     }
     .cell-title {
       padding-left: 22px;
+      @media (min-width: @screen_md) {
+        padding-left: 42px;
+      }
     }
     input {
       border-radius: 0 2px 2px 0;
+      @media (min-width: @screen_md) {
+        border-radius: 2px;
+      }
     }
   }
   .row-part {
     td {
       padding-left: 60px;
+      @media (min-width: @screen_md) {
+        padding-left: 80px;
+        padding-right: 120px;
+      }
     }   
     .cell-title {
       padding-left: 82px;
+      @media (min-width: @screen_md) {
+        padding-left: 102px;
+      }
     } 
   }
   .cell-number {
@@ -109,6 +162,16 @@
     background: @bg-c-invert;
     font-size: 1.29rem;
     line-height: normal;
+    @media (min-width: @screen_md) {
+      border-right: 2px solid @color-border;
+      border-radius: 2px;
+    }
+  }
+  .cell-delete {
+    display: block;
+    padding: 14px 0;
+    text-transform: uppercase;    
+    color: @color-dark;
   }
 }
 
@@ -139,11 +202,22 @@
 
 .form-submit {
   padding: 45px 0 15px;
+  @media (min-width: @screen_md) {
+    padding-top: 0;
+  }
   .form-note {
     text-align: center;
     text-transform: uppercase;
-    span {
+    @media (min-width: @screen_md) {
+      float: right;
+      padding-top: 20px;
+      text-align: right;
+    }
+    .star {
       color: @color-link;
+    }
+    .hidden-note {
+      display: none;
     }
   }
 }
@@ -153,8 +227,15 @@
   margin-bottom: 40px;
   color: @color-light;
   background-color: @color-btn;
+  @media (min-width: @screen_md) {
+    float: left;
+    width: 300px;
+  }
 }
 
 .btn-close {
-  &:extend(.btn-submit all);
+  .mixin-btn ();
+  margin-bottom: 40px;
+  color: @color-light;
+  background-color: @color-btn;
 }
