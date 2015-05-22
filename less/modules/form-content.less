@@ -1,18 +1,19 @@
-.form-noset{
-  padding-top: 35px;
-  padding-bottom: 40px;
+.conditions {
+  margin-top: 35px;
+  margin-bottom: 45px;
+  text-align: center;
+  line-height: 2.14;
   @media (min-width: @screen_md) {
-    padding-top: 80px;
+    margin-top: 80px;
+    margin-left: 60px;
+    margin-right: 60px;
+    font-size: 1.29rem;
+    line-height: 1.67;
   }
-  .conditions {
-    text-align: center;
-    line-height: 2.14;
-    margin-bottom: 45px;
-    @media (min-width: @screen_md) {
-      font-size: 1.29rem;
-      line-height: 1.67;
-    }
-  }
+}
+
+.form-noset {
+  padding-bottom: 40px;
 }
 
 .input-text {
@@ -33,6 +34,9 @@
   input {
     @media (min-width: @screen_md) {
       width: 50%;
+    }
+    @media (min-width: @screen_lg) {
+      width: 33%;
     }
   }
 }
@@ -114,7 +118,8 @@
       }
       &:nth-child(2) {
         @media (min-width: @screen_md) {
-          padding: 0 20px;
+          padding-left: 20px;
+          padding-right: 20px;
         }
       }
       &:nth-child(3) {
@@ -125,7 +130,7 @@
         }
       }
     }
-    .cell-title {
+    td.cell-title {
       padding-left: 22px;
       @media (min-width: @screen_md) {
         padding-left: 42px;
@@ -218,6 +223,9 @@
     }
     .hidden-note {
       display: none;
+      @media (min-width: @screen_lg) {
+        display: inline;
+      }
     }
   }
 }
@@ -230,6 +238,9 @@
   @media (min-width: @screen_md) {
     float: left;
     width: 300px;
+  }
+  @media (min-width: @screen_lg) {
+    margin-bottom: 0;
   }
 }
 

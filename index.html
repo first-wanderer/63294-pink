@@ -12,17 +12,17 @@
 <body>
 
   <header class="page-header index-header">
-    <nav class="page-nav">
-      <div class="nav-wrap l-container">
+    <nav class="page-nav clearfix">
+      <div class="l-container clearfix">
         <a href="index.html" class="logo-link"><img src="img/img-logo-nav.png" height="23" width="74" alt="Pink"></a>
         <a href="#" class="nav-toggle"></a>
+        <ul class="nav-menu">
+          <li><a href="#s-info">Информация</a></li><!-- 
+       --><li><a href="#s-abilitys">Возможности</a></li><!-- 
+       --><li><a href="#s-reviews">Отзывы</a></li><!-- 
+       --><li><a href="#s-price">Стоимость</a></li>
+        </ul>
       </div>
-      <ul class="nav-menu">
-        <li><a href="#s-info">Информация</a></li>
-        <li><a href="#s-abilitys">Возможности</a></li>
-        <li><a href="#s-reviews">Отзывы</a></li>
-        <li><a href="#s-price">Стоимость</a></li>
-      </ul>
     </nav>
 
     <div class="l-container">
@@ -32,7 +32,7 @@
       </div>
     </div>
 
-    <div class="l-container">
+    <div class="l-container clearfix">
       <div id="s-info" class="header-info">
         <a href="#" class="btn-download">Скачать приложение</a>
         <div class="info-download">
@@ -58,8 +58,8 @@
         </div>
       </div>
       <div class="angle-invert">
-        <div class="l-container flex-container">
-          <div class="ability-wrap">
+        <div class="l-container flex-container">          
+          <div class="ability-wrap flex-in-flex">
             <div class="ability">
               <h2 class="ability-title">Поднимает настроение</h2>
               <p class="ability-descr">Приложение позволит вам победить осеннюю хандру и деперессию буквально в несколько кликов!</p>
@@ -72,15 +72,21 @@
               <h2 class="ability-title">Заводит новых друзей</h2>
               <p class="ability-descr">Ставьте лайки, комментируте, делитесь фотографиями с друзьями и заводите новых</p>
             </div>
-          </div>          
-          <div class="ability-hello"><img src="img/img-abilitys.png" height="320" width="157" alt="Hello everyone"></div>          
+          </div>
+          <div class="ability-hello flex-in-flex">
+            <img src="img/img-abilitys.png" height="320" width="157" alt="Hello everyone">
+            <img src="img/img-abilitys.png" height="320" width="157" alt="Hello everyone">
+            <img src="img/img-abilitys.png" height="320" width="157" alt="Hello everyone">
+          </div>
         </div>
       </div>
     </section>
 
     <section id="s-effect" class="s-effect">
-      <div class="l-container">
-        <div class="l-effect-l"></div>
+      <div class="l-container clearfix">
+        <div class="l-effect-l">
+          <div class="timer-24">24</div>
+        </div>
         <div class="l-effect-r">
           <div class="effect-title">Эффект на 24 часа!</div>
           <p class="effect-descr">Британские ученые провели исследования и доказали, что положительный эффект от использования приложения длится целые сутки!</p>
@@ -117,57 +123,59 @@
     </section>
 
     <section id="s-price" class="s-price angle-invert">
-      <div class="slider-price">
-        <table class="price-table">
-          <tr>
-            <th>&nbsp;</th>
-            <th colspan="2">
-              <div class="price-tarif">База</div>
-              <div class="price-rate">3,99&nbsp;USD</div>
-            </th>
-            <th colspan="2">
-              <div class="price-tarif">Стандарт</div>
-              <div class="price-rate">3,99&nbsp;USD</div>
-            </th>
-            <th colspan="2">
-              <div class="price-tarif">Анлим</div>
-              <div class="price-rate">3,99&nbsp;USD</div>
-            </th>
-          </tr>
-          <tr>
-            <td>Розовый фильтр</td>
-            <td>Розовый фильтр</td>
-            <td class="option-yes">yes</td>
-            <td>Розовый фильтр</td>
-            <td class="option-yes">yes</td>
-            <td>Розовый фильтр</td>
-            <td class="option-yes">yes</td>
-          </tr>
-          <tr>
-            <td>Смайлики</td>
-            <td>Смайлики</td>
-            <td class="option-no">no</td>
-            <td>Смайлики</td>
-            <td class="option-yes">yes</td>
-            <td>Смайлики</td>
-            <td class="option-yes">yes</td>
-          </tr>
-          <tr>
-            <td>Комментарии</td>
-            <td>Комментарии</td>
-            <td class="option-no">no</td>
-            <td>Комментарии</td>
-            <td class="option-no">no</td>
-            <td>Комментарии</td>
-            <td class="option-yes">yes</td>
-          </tr>
-        </table>
-        <ul class="slider-pagination">
-          <li></li>
-          <li class="is-slide-active"></li>
-          <li></li>
-        </ul>
-      </div>
+      <div class="l-container">
+        <div class="slider-price">
+          <table class="price-table">
+            <tr>
+              <th>&nbsp;</th>
+              <th colspan="2">
+                <div class="price-tarif">База</div>
+                <div class="price-rate">3,99&nbsp;USD</div>
+              </th>
+              <th colspan="2">
+                <div class="price-tarif">Стандарт</div>
+                <div class="price-rate">3,99&nbsp;USD</div>
+              </th>
+              <th colspan="2">
+                <div class="price-tarif">Анлим</div>
+                <div class="price-rate">3,99&nbsp;USD</div>
+              </th>
+            </tr>
+            <tr>
+              <td>Розовый фильтр</td>
+              <td>Розовый фильтр</td>
+              <td class="option-yes">yes</td>
+              <td>Розовый фильтр</td>
+              <td class="option-yes">yes</td>
+              <td>Розовый фильтр</td>
+              <td class="option-yes">yes</td>
+            </tr>
+            <tr>
+              <td>Смайлики</td>
+              <td>Смайлики</td>
+              <td class="option-no">no</td>
+              <td>Смайлики</td>
+              <td class="option-yes">yes</td>
+              <td>Смайлики</td>
+              <td class="option-yes">yes</td>
+            </tr>
+            <tr>
+              <td>Комментарии</td>
+              <td>Комментарии</td>
+              <td class="option-no">no</td>
+              <td>Комментарии</td>
+              <td class="option-no">no</td>
+              <td>Комментарии</td>
+              <td class="option-yes">yes</td>
+            </tr>
+          </table>
+          <ul class="slider-pagination">
+            <li></li>
+            <li class="is-slide-active"></li>
+            <li></li>
+          </ul>
+        </div>
+      </div>      
     </section>
   </div>
 

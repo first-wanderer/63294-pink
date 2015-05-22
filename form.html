@@ -12,34 +12,34 @@
 <body>
 
   <header class="page-header">
-    <nav class="page-nav">
-      <div class="nav-wrap l-container">
+    <nav class="page-nav clearfix">
+      <div class="l-container clearfix">
         <a href="index.html" class="logo-link"><img src="img/img-logo-nav.png" height="23" width="74" alt="Pink"></a>
         <a href="#" class="nav-toggle"></a>
+        <ul class="nav-menu">
+          <li><a href="#s-info">Информация</a></li><!-- 
+       --><li><a href="#s-abilitys">Возможности</a></li><!-- 
+       --><li><a href="#s-reviews">Отзывы</a></li><!-- 
+       --><li><a href="#s-price">Стоимость</a></li>
+        </ul>
       </div>
-      <ul class="nav-menu">
-        <li><a href="#s-info">Информация</a></li>
-        <li><a href="#s-abilitys">Возможности</a></li>
-        <li><a href="#s-reviews">Отзывы</a></li>
-        <li><a href="#s-price">Стоимость</a></li>
-      </ul>
     </nav>
-    <div class="header-intro">
-      <div class="l-container">
+
+    <div class="l-container clearfix">
+      <div class="header-intro">
         <h1>Конкурс на самое безбашеное путешествие с Пинк</h1>
       </div>
     </div>
   </header>
 
-
-
+  
   <div class="form-content">
     <form action="/echo" method="post" enctype="multipart/form-data">
       <div class="l-container">
-        <div class="form-noset">
-          <p class="conditions">
-            Поделитесь своей историей и получите шанс выиграть ценный приз — 1000 миль на вашу бонусную карту! Пожалуйста, заполните форму ниже:
-          </p>
+        <p class="conditions">
+          Поделитесь своей историей и получите шанс выиграть ценный приз — 1000 миль на вашу бонусную карту! Пожалуйста, заполните форму ниже:
+        </p>
+        <div class="form-noset flex-form-lg-grow">
           <div class="input-text">
             <label for="name">Имя:*</label>
             <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
@@ -55,17 +55,19 @@
         </div>
         <fieldset class="form-block form-invert">
           <legend class="title-block">С каким приложением путешествовали? *</legend>
-          <div class="input-radio-check">
-            <input type="radio" id="app-ios" name="application" value="iOS" checked>
-            <label for="app-ios">Pink для iOS</label>
-          </div>
-          <div class="input-radio-check">
-            <input type="radio" id="app-android" name="application" value="Android">
-            <label for="app-android">Pink на Android</label>
-          </div>
-          <div class="input-radio-check">
-            <input type="radio" id="app-wp" name="application" value="WinPhone">
-            <label for="app-wp">Windows Phone</label>
+          <div class="flex-form-lg">
+            <div class="input-radio-check">
+              <input type="radio" id="app-ios" name="application" value="iOS" checked>
+              <label for="app-ios">Pink для iOS</label>
+            </div>
+            <div class="input-radio-check">
+              <input type="radio" id="app-android" name="application" value="Android">
+              <label for="app-android">Pink на Android</label>
+            </div>
+            <div class="input-radio-check">
+              <input type="radio" id="app-wp" name="application" value="WinPhone">
+              <label for="app-wp">Windows Phone</label>
+            </div>
           </div>
         </fieldset>
         <fieldset class="form-block">
@@ -127,29 +129,31 @@
         </fieldset>
         <fieldset class="form-block">
           <legend class="title-block">Ваши безбашенные достижения в путешествии</legend>
-          <div class="input-radio-check">
-            <input type="checkbox" id="achiev-selfie" name="application" checked>
-            <label for="achiev-selfie">Сделал селфи с акулой</label>
-          </div>
-          <div class="input-radio-check">
-            <input type="checkbox" id="achiev-burn" name="application" checked>
-            <label for="achiev-burn">Обгорел на пляже</label>
-          </div>
-          <div class="input-radio-check">
-            <input type="checkbox" id="achiev-norris" name="application">
-            <label for="achiev-norris">Видел Чака Норриса</label>
-          </div>
-          <div class="input-radio-check">
-            <input type="checkbox" id="achiev-relic" name="application">
-            <label for="achiev-relic">Накупил сувениров</label>
-          </div>
-          <div class="input-radio-check">
-            <input type="checkbox" id="achiev-tower" name="application" checked>
-            <label for="achiev-tower">Удержал башню</label>
-          </div>
-          <div class="input-radio-check">
-            <input type="checkbox" id="achiev-hotel" name="application">
-            <label for="achiev-hotel">Разгромил отель</label>
+          <div class="flex-form-lg two-row">
+            <div class="input-radio-check">
+              <input type="checkbox" id="achiev-selfie" name="application" checked>
+              <label for="achiev-selfie">Сделал селфи с акулой</label>
+            </div>
+            <div class="input-radio-check">
+              <input type="checkbox" id="achiev-burn" name="application" checked>
+              <label for="achiev-burn">Обгорел на пляже</label>
+            </div>
+            <div class="input-radio-check">
+              <input type="checkbox" id="achiev-norris" name="application">
+              <label for="achiev-norris">Видел Чака Норриса</label>
+            </div>
+            <div class="input-radio-check">
+              <input type="checkbox" id="achiev-relic" name="application">
+              <label for="achiev-relic">Накупил сувениров</label>
+            </div>
+            <div class="input-radio-check">
+              <input type="checkbox" id="achiev-tower" name="application" checked>
+              <label for="achiev-tower">Удержал башню</label>
+            </div>
+            <div class="input-radio-check">
+              <input type="checkbox" id="achiev-hotel" name="application">
+              <label for="achiev-hotel">Разгромил отель</label>
+            </div>
           </div>
         </fieldset>
         <fieldset class="form-block form-invert">
