@@ -92,40 +92,38 @@
           <div class="input-text input-range border-bottom">
             <input type="text" name="comp-amount" value="2 чел" required>
           </div>
-          <table class="comp-table">
-            <tr class="row-full">
-              <td>№</td>
-              <td class="cell-title" colspan="2">Имя: *</td>
-            </tr>
-            <tr class="row-full">
-              <td><div class="cell-number">1</div></td>
-              <td><input type="text" name="comp-name-1" placeholder="Введите ваше имя" required></td>
-              <td><a class="cell-delete" href="#">Удалить</a></td>
-            </tr>
-            <tr class="row-part">
-              <td class="cell-title" colspan="3">Прозвище:</td>
-            </tr>
-            <tr class="row-part">
-              <td colspan="3"><input type="text" name="comp-byname-1" placeholder="Ну как же без этого!"></td>
-            </tr>
-          </table>
-          <table class="comp-table">
-            <tr class="row-full">
-              <td>№</td>
-              <td class="cell-title" colspan="2">Имя: *</td>
-            </tr>
-            <tr class="row-full">
-              <td><div class="cell-number">2</div></td>
-              <td><input type="text" name="comp-name-2" placeholder="Введите ваше имя" required></td>
-              <td><a class="cell-delete" href="#">Удалить</a></td>
-            </tr>
-            <tr class="row-part">
-              <td class="cell-title" colspan="3">Прозвище:</td>
-            </tr>
-            <tr class="row-part">
-              <td colspan="3"><input type="text" name="comp-byname-2" placeholder="Ну как же без этого!"></td>
-            </tr>
-          </table>
+
+          <div class="comp form-flex-sm">
+            <div class="comp-number">
+              <div>№</div>
+              <div>1</div>
+            </div>
+            <div class="input-text">
+              <label for="comp-name-1">Имя:*</label>
+              <input type="text" id="comp-name-1" name="comp-name-1" placeholder="Введите ваше имя" required>
+            </div>
+            <div class="input-text">
+              <label for="comp-byname-1">Прозвище:</label>
+              <input type="text" id="comp-byname-1" name="comp-byname-1" placeholder="Ну как же без этого!">
+            </div>
+            <div class="comp-delete"><a href="#">Удалить</a></div>
+          </div>
+
+          <div class="comp form-flex-sm">
+            <div class="comp-number">
+              <div>№</div>
+              <div>2</div>
+            </div>
+            <div class="input-text">
+              <label for="comp-name-2">Имя:*</label>
+              <input type="text" id="comp-name-2" name="comp-name-2" placeholder="Введите ваше имя" required>
+            </div>
+            <div class="input-text">
+              <label for="comp-byname-2">Прозвище:</label>
+              <input type="text" id="comp-byname-2" name="comp-byname-2" placeholder="Ну как же без этого!">
+            </div>
+            <div class="comp-delete"><a href="#">Удалить</a></div>
+          </div>
         </fieldset>
         <fieldset class="form-block">
           <legend class="title-block">Ваши безбашенные достижения в путешествии</legend>

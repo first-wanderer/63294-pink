@@ -91,74 +91,23 @@
   }
 }
 
-.comp-table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-bottom: 15px;
+.comp {
+  margin-bottom: 10px;
   &:last-of-type {
-    margin-bottom: 45px;
+    margin-bottom: 20px;
   }
-  input {
-    width: 100%;
+}
+
+.comp-number {
+  margin-bottom: 20px;
+  width: 60px;
+  text-align: center;
+  div:first-child {
+    margin-bottom: 10px;
+    color: @color-link;
+    text-transform: uppercase;
   }
-  tr {
-    &:nth-child(odd) {
-      color: @color-link;
-      text-transform: uppercase;
-      td {
-        padding: 20px 0 10px;
-      }
-    }
-  }
-  .row-full {
-    td {
-      &:nth-child(1) {
-        width: 60px;
-        text-align: center;
-      }
-      &:nth-child(2) {
-        @media (min-width: @screen_md) {
-          padding-left: 20px;
-          padding-right: 20px;
-        }
-      }
-      &:nth-child(3) {
-        width: 100px;
-        text-align: right;
-        @media (max-width: (@screen_md - 1)) {
-          display: none;
-        }
-      }
-    }
-    td.cell-title {
-      padding-left: 22px;
-      @media (min-width: @screen_md) {
-        padding-left: 42px;
-      }
-    }
-    input {
-      border-radius: 0 2px 2px 0;
-      @media (min-width: @screen_md) {
-        border-radius: 2px;
-      }
-    }
-  }
-  .row-part {
-    td {
-      padding-left: 60px;
-      @media (min-width: @screen_md) {
-        padding-left: 80px;
-        padding-right: 120px;
-      }
-    }   
-    .cell-title {
-      padding-left: 82px;
-      @media (min-width: @screen_md) {
-        padding-left: 102px;
-      }
-    } 
-  }
-  .cell-number {
+  div:last-child {
     box-sizing: border-box;
     padding: 14px 0;
     border: 2px solid @color-border;
@@ -172,9 +121,25 @@
       border-radius: 2px;
     }
   }
-  .cell-delete {
+  + .input-text input {
+    border-radius: 0 2px 2px 0;
+    @media (min-width: @screen_md) {
+      border-radius: 2px;
+    }
+  }
+}
+
+.comp-delete {
+  display: none;
+  width: 100px;
+  padding-top: 30px;
+  text-align: right;
+  @media (min-width: @screen_md) {
     display: block;
-    padding: 14px 0;
+  }
+  a {
+    display: block;
+    padding: 18px 0;
     text-transform: uppercase;    
     color: @color-dark;
   }
