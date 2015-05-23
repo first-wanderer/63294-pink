@@ -28,11 +28,23 @@
     <div class="l-container">
       <div class="header-intro">
         <h1>Взгляните на жизнь иначе!</h1>
-        <img src="img/img-header-intro.png" height="313" width="320" alt="Intro">
+				<picture>
+					<source
+						media="(min-width: 980px)"
+						srcset="img/iphone-hand-desktop@1x.png 1x,
+						img/iphone-hand-desktop@2x.png 2x">
+					<source
+						media="(min-width: 660px)"
+						srcset="img/iphone-hand-tablet@1x.png 1x,
+						img/iphone-hand-tablet@2x.png 2x">
+					<img src="img/iphone-hand-mobile.png"
+							 srcset="img/iphone-hand-mobile@2x.png 2x,
+							 img/iphone-hand-mobile@3x.png 3x" alt="Intro">
+				</picture>
       </div>
     </div>
 
-    <div class="l-container clearfix">
+    <div class="l-container clearfix wrap-bg">
       <div id="s-info" class="header-info">
         <a href="#" class="btn-download">Скачать приложение</a>
         <div class="info-download">
@@ -74,9 +86,41 @@
             </div>
           </div>
           <div class="ability-hello flex-in-flex">
-            <img src="img/img-abilitys.png" height="320" width="157" alt="Hello everyone">
-            <img src="img/img-abilitys.png" height="320" width="157" alt="Hello everyone">
-            <img src="img/img-abilitys.png" height="320" width="157" alt="Hello everyone">
+            <picture>
+							<source
+								media="(min-width: 980px)"
+								srcset="img/iphone-screen-desktop-1@1x.png 1x,
+								img/iphone-screen-desktop-1@2x.png 2x">
+							<source
+								media="(min-width: 660px)"
+								srcset="img/iphone-screen-tablet-1@1x.png 1x,
+								img/iphone-screen-tablet-1@2x.png 2x">
+							<img src="img/screen-mobile-1.png" alt="Screen-1">
+						</picture>
+
+						<picture>
+							<source
+								media="(min-width: 980px)"
+								srcset="img/iphone-screen-desktop-2@1x.png 1x,
+								img/iphone-screen-desktop-2@2x.png 2x">
+							<source
+								media="(min-width: 660px)"
+								srcset="img/iphone-screen-tablet-1@1x.png 1x,
+								img/iphone-screen-tablet-2@2x.png 2x">
+							<img src="img/screen-mobile-2.png" alt="Screen-2">
+						</picture>
+
+						<picture>
+							<source
+								media="(min-width: 980px)"
+								srcset="img/iphone-screen-desktop-3@1x.png 1x,
+								img/iphone-screen-desktop-3@2x.png 2x">
+							<source
+								media="(min-width: 660px)"
+								srcset="img/iphone-screen-tablet-3@1x.png 1x,
+								img/iphone-screen-tablet-3@2x.png 2x">
+							<img src="img/screen-mobile-3.png" alt="Screen-3">
+						</picture>            
           </div>
         </div>
       </div>

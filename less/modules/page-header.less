@@ -1,8 +1,32 @@
 .page-header {
   position: relative;
-  background: @bg-c;
   color: @color-light;
-  text-align: center;      
+  text-align: center;
+  background: @bg-c url('../img/background-mobile@1x.jpg') no-repeat top center;
+  background-size: auto 488px;
+  @media (min-resolution: 1.5dppx) {    
+    background-image: url('../img/background-mobile@2x.jpg');
+  }
+  @media (min-resolution: 2.5dppx) {
+    background-image: url('../img/background-mobile@3x.jpg');    
+  }
+  @media (min-width: @screen_md) {
+    background-position: center;
+    background-size: cover;
+    background-image: url('../img/background-tablet@1x.jpg');
+    @media (min-resolution: 1.5dppx) {    
+      background-image: url('../img/background-tablet@2x.jpg');
+    }
+  }
+  @media (min-width: @screen_lg) {
+    background-image: url('../img/background-fullsize.jpg');
+  }
+  .wrap-bg {
+    background-color: @bg-c;
+    @media (min-width: @screen_md) {
+      background-color: transparent;
+    }
+  }
 }
 
 .page-nav {
@@ -107,6 +131,7 @@
 
 .index-header {
   .header-intro {
+    line-height: 0;
     @media (min-width: @screen_md) {
       width: 50%;
     }
@@ -114,6 +139,7 @@
       width: 32%;
     }
     h1 {
+      line-height: 1.4;
       margin: 20px 0 30px;
       @media (min-width: @screen_md) {
         margin-top: 95px;
@@ -124,16 +150,12 @@
     }  
     img {
       position: relative;
-      left: -20px;
+      left: -30px;
       @media (min-width: @screen_md) {
         position: absolute;
         bottom: 0;
-        left: 75%;
-        margin-left: -160px;
-      }
-      @media (min-width: @screen_lg) {
-        left: 64%;
-        margin-left: -160px;
+        left: auto;
+        right: 0;
       }
     }
   }
