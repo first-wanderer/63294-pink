@@ -5,7 +5,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-githooks');
-  grunt.loadNpmTasks('grunt-lintspaces');
+  grunt.loadNpmTasks('grunt-lintspaces');  
+  grunt.loadNpmTasks('grunt-svginject');
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -58,6 +59,15 @@ module.exports = function(grunt) {
           ],
           dest: 'gosha',
         }]
+      }
+    },
+
+    svginject: {
+      all : {
+        options: {},
+        files: {
+           'js/SVGinject.js': ['img/use-svg/*.svg'],
+        }
       }
     },
 
