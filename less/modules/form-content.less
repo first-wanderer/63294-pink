@@ -145,25 +145,46 @@
   }
 }
 
+.fotos-upload {
+  display: block;
+  position: relative;
+  width: 100%;   
+  overflow: hidden;
+  .btn-upload {
+    .mixin-btn ();
+    display: block;    
+    box-sizing: border-box;  
+    border: 2px solid @color-border;
+    cursor: pointer;
+  }
+  input[type="file"] {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+  }  
+}
+
 .fotos-block {
   padding: 15px 0;
   .foto-template {
     display: inline-block;
+    vertical-align: top;
     position: relative;
   }
   .foto-delete {
-    position: absolute;
+    position: absolute; 
     top: -14px;
     right: -14px;
-    width: 28px;
-    height: 28px;
+    width: 10px;
+    height: 10px;
+    padding: 9px;    
     border: 2px solid @color-border;
     border-radius: 50%;
-    font-size: 0;
-    background: @color-light url('../img/form-foto-delete.png') no-repeat center;
+    background-color: @color-light;
     z-index: 5;
     cursor: pointer;
-  }
+    fill: rgba(51, 51, 51, 0.3);
+  }  
   .foto-name {
     font-size: .86rem;
     text-transform: uppercase;

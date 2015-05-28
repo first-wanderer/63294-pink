@@ -1,14 +1,14 @@
 //добавление интерактивной карты
 function initialize() {  
-  var centerLatlng = new google.maps.LatLng(45.043712, 38.943004);
+  var centerLatlng = new google.maps.LatLng(59.938910, 30.323031);
   var mapOptions = {
-    zoom: 18,
+    zoom: 17,
     center: centerLatlng
   }
   var map = new google.maps.Map(document.getElementById("google-map"), mapOptions);
   
   var image = 'img/map-marker.svg';
-  var myLatlng = new google.maps.LatLng(45.043407, 38.944861);
+  var myLatlng = new google.maps.LatLng(59.938641, 30.323010);
   var marker = new google.maps.Marker({
       position: myLatlng,
       map: map,      

@@ -10,8 +10,7 @@
   @media (min-resolution: 2.5dppx) {
     background-image: url('../img/background-mobile@3x.jpg');    
   }
-  @media (min-width: @screen_md) {
-    background-position: center;
+  @media (min-width: @screen_md) {    
     background-size: cover;
     background-image: url('../img/background-tablet@1x.jpg');
     @media (min-resolution: 1.5dppx) {    
@@ -32,12 +31,73 @@
 .page-nav {
   background: @bg-c-nav;
   .logo-link {
-    float: left;
+    float: left;  
+    width: 75px;
+    height: 23px;
     padding-top: 20px;
     padding-bottom: 20px;
-    @media (min-width: @screen_lg) {
+    @media (min-width: @screen_md) {
+      width: 147px;
+      height: 41px;
+      padding-top: 24px;
+      padding-bottom: 40px;
+    }
+    span {
+      &:nth-child(1) {
+        @media (min-width: @screen_md) {
+          display: none;
+        }
+      }
+      &:nth-child(2) {
+        display: none;
+        @media (min-width: @screen_md) {
+          display: inline;
+        }
+        @media (min-width: @screen_lg) {
+          display: none;
+        }
+      }
+      &:nth-child(3) {
+        display: none;
+        @media (min-width: @screen_lg) {
+          display: inline;
+        }
+      }
+    }
+  }
+  .nav-toggle {
+    float: right;
+    height: 24px;    
+    padding-top: 20px;
+    padding-bottom: 20px;
+    @media (min-width: @screen_md) {
       padding-top: 40px;
       padding-bottom: 40px;
+    }
+    @media (min-width: @screen_lg) {
+      display: none;
+    }
+    &.close-menu {
+      width: 50px;
+      span {
+        &:nth-child(1) {
+          display: inline;
+        }
+        &:nth-child(2) {
+          display: none;
+        }
+      }
+    }
+    &.open-menu {
+      width: 24px;
+      span {
+        &:nth-child(1) {
+          display: none;
+        }
+        &:nth-child(2) {
+          display: inline;
+        }
+      }
     }
   }
   .nav-menu {
@@ -109,6 +169,7 @@
   }
   .btn-download {
     display: inline-block;
+    vertical-align: top;
     padding: 10px 35px;
     font-size: 1.29rem;
     font-weight: 700;
@@ -156,6 +217,7 @@
       }
       @media (min-width: @screen_lg) {
         margin: 105px 0 45px;
+        min-height: 210px;
       }
     }  
     img {

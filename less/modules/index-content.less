@@ -147,11 +147,28 @@
 }
 
 .s-reviews {
-  padding : 40px 0;
+  padding : 40px 0;  
   .slider-reviews {
-     @media (min-width: @screen_lg) {
-      padding-left: 130px;
-      padding-right: 130px;
+    position: relative;
+    overflow: hidden;
+    margin-left: -20px;
+    margin-right: -20px;    
+  }
+  .slider-wrap {
+    position: relative;
+    width: 300%;
+  }
+  .slider-item {
+    float: left;    
+    box-sizing: border-box;
+    width: 33%;
+    padding-left: 20px;
+    padding-right: 20px;
+    @media (min-width: @screen_lg) {
+      padding-left: 140px;
+      padding-right: 140px;
+      padding-top: 150px;
+      background: url('data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C%21--%20Generator%3A%20Adobe%20Illustrator%2015.0.0%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200%29%20%20--%3E%0A%3C%21DOCTYPE%20svg%20PUBLIC%20%22-//W3C//DTD%20SVG%201.0//EN%22%20%22http%3A//www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd%22%3E%0A%3Csvg%20version%3D%221.0%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20width%3D%2278.673px%22%20height%3D%2263.788px%22%20viewBox%3D%220%200%2078.673%2063.788%22%20enable-background%3D%22new%200%200%2078.673%2063.788%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cg%3E%0A%09%3Cpath%20fill%3D%22%23efefef%22%20d%3D%22M72.354%2C39.632c-2.797-2.401-6.636-3.604-11.518-3.604h-5.67c0.473-4.081%2C1.278-7.397%2C2.421-9.948%0A%09%09c1.141-2.551%2C2.854-5.044%2C5.139-7.477c2.363-2.51%2C4.685-4.531%2C6.97-6.063c2.283-1.53%2C5.274-3.356%2C8.978-5.477L74.42%2C0%0A%09%09c-2.441%2C1.495-5.474%2C3.42-9.096%2C5.779c-3.623%2C2.359-7.048%2C5.228-10.276%2C8.607c-3.151%2C3.302-5.83%2C7.056-8.033%2C11.261%0A%09%09c-2.206%2C4.204-3.308%2C8.861-3.308%2C13.97c0%2C7.232%2C1.456%2C13.07%2C4.371%2C17.511c2.913%2C4.44%2C7.755%2C6.661%2C14.529%2C6.661%0A%09%09c4.33%2C0%2C7.737-1.436%2C10.218-4.311s3.721-5.967%2C3.721-9.273C76.546%2C45.559%2C75.147%2C42.034%2C72.354%2C39.632z%22/%3E%0A%09%3Cpath%20fill%3D%22%23efefef%22%20d%3D%22M19.019%2C18.603c2.362-2.51%2C4.685-4.531%2C6.97-6.063c2.283-1.53%2C5.274-3.356%2C8.978-5.477L30.713%2C0%0A%09%09c-2.441%2C1.495-5.475%2C3.42-9.095%2C5.779c-3.624%2C2.359-7.05%2C5.228-10.278%2C8.607c-3.149%2C3.302-5.828%2C7.056-8.032%2C11.261%0A%09%09C1.103%2C29.851%2C0%2C34.508%2C0%2C39.616c0%2C7.232%2C1.457%2C13.07%2C4.371%2C17.511c2.912%2C4.44%2C7.756%2C6.661%2C14.529%2C6.661%0A%09%09c4.33%2C0%2C7.737-1.436%2C10.218-4.311c2.481-2.875%2C3.722-5.967%2C3.722-9.273c0-4.646-1.399-8.17-4.194-10.572%0A%09%09c-2.796-2.401-6.635-3.604-11.517-3.604h-5.671c0.473-4.081%2C1.3-7.416%2C2.481-10.007C15.12%2C23.432%2C16.812%2C20.958%2C19.019%2C18.603z%22/%3E%0A%3C/g%3E%0A%3C/svg%3E') no-repeat center 35px;
     }
   }
   .review-title {
@@ -205,6 +222,28 @@
     &:last-child {
       margin-right: 0;
     }
+  }
+}
+
+.slider-control {
+  display: none;
+  @media (min-width: @screen_lg) {
+    display: block;
+  }
+  div {
+    position: absolute;
+    width: 22px;
+    height: 42px;
+    top: 50%;
+    margin-top: -21px;
+    opacity: .3;
+    cursor: pointer;
+  }
+  .prev-btn {
+    left: 20px;
+  }
+  .next-btn {
+    right: 20px;
   }
 }
 

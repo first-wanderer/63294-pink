@@ -42,6 +42,17 @@
   }
 }
 
+.mixin-hover-svg () {
+  &:hover {
+    .hover-color {
+      fill: @color-link;
+    }   
+  }
+  &:active {
+    opacity: .3;    
+  }
+}
+
 .mixin-flex-row-wrap () {
   display: flex;
   flex-direction: row;

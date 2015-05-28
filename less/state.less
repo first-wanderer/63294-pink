@@ -18,7 +18,7 @@
 				  }
 				}
 				&:active {
-					color: fade(@color-light, 30%);
+					opacity: .3;
 					&::after{
 				    display: none;
 				  }
@@ -31,12 +31,21 @@
 	}	
 }
 
+.page-nav {
+	.logo-link {
+		.mixin-hover-svg ();
+	}
+	.nav-toggle {
+		.mixin-hover-svg ();
+	}
+}
+
 .effect-link, .post-body a {
 	&:hover {
 		color: @color-dark;
 	}
 	&:active {
-		color: @color-dark-alpha;
+		opacity: .3;
 		text-decoration: none;
 	}
 }
@@ -64,6 +73,17 @@
     	background-color: transparent;
     }
   }
+}
+
+.slider-control{
+	div {
+		&:hover {
+			opacity: .6;
+		}
+		&:active {
+			opacity: .1;
+		}
+	}
 }
 
 .blog-pagination {
@@ -119,6 +139,31 @@ input[type="text"], input[type="date"] {
 	}
 }
 
+.fotos-upload {  
+  .btn-upload {
+    &:hover {
+			border-color: @color-dark;								
+		}
+		&:active {
+			background-color: @color-dark;	
+			color: @color-light;
+		}
+  }  
+}
+
+.fotos-block {
+	.foto-delete {
+		&:hover {
+			border-color: @color-dark;
+			fill: @color-dark;					
+		}
+		&:active {
+			background-color: @color-dark;	
+			fill: @color-light;
+		}
+	}
+}
+
 .btn-submit {
 	&:hover {
 		background-color: @color-btn-hover;
@@ -141,6 +186,10 @@ input[type="text"], input[type="date"] {
 	}
 }
 
+.footer-logo {
+	.mixin-hover-svg ();
+}
+
 .footer-social {
 	a {
 		.mixin-hover-color ();
@@ -148,7 +197,19 @@ input[type="text"], input[type="date"] {
 			border-color: @color-dark;
 		}
 		&:active {
-			border-color: @color-dark-alpha10;
+			border-color: @color-dark-alpha;
+			opacity: .3;
 		}
 	}
+}
+
+.footer-create {  
+  .create-btn {
+    &:hover {
+    	fill: @color-dark;
+    }
+    &:active {
+    	opacity: .3;
+    }
+  }
 }
