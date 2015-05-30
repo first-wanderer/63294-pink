@@ -7,6 +7,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-githooks');
   grunt.loadNpmTasks('grunt-lintspaces');  
   grunt.loadNpmTasks('grunt-svginject');
+  grunt.loadNpmTasks('grunt-svgmin');
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),

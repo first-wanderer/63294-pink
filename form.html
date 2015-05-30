@@ -41,7 +41,7 @@
 
   
   <div class="form-content">
-    <form action="/echo" method="post" enctype="multipart/form-data">
+    <form id="form-contest" action="http://simonenko.su/academy/echo" method="post" enctype="multipart/form-data">
       <div class="l-container">
         <p class="conditions">
           Поделитесь своей историей и получите шанс выиграть ценный приз — 1000 миль на вашу бонусную карту! Пожалуйста, заполните форму ниже:
@@ -165,7 +165,7 @@
           <legend class="title-block">Ваши фотографии из поездки *</legend>          
           <label class="fotos-upload">
             <span class="btn-upload">Загрузить фото</span>            
-            <input type="file" name="fotos">
+            <input type="file" name="fotos" multiple>
           </label>
           <div class="fotos-block border-top">
             <div class="foto-template">
@@ -219,6 +219,7 @@
     </div>
   </div> -->
 
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;signed_in=true"></script>
   <script src="js/SVGinject.js"></script>
   <script src="js/script.js"></script>
   

@@ -1,215 +1,215 @@
 .page-nav {
-	a {
-		.mixin-hover-color ();
-	}
-	.nav-menu {
-		@media (min-width: @screen_lg) {
-			a {
-				&:hover {
-					color: @color-light;
-					&::after{
-				    content: "";
-				    position: absolute;
-				    bottom: 35px;
-				    left: 38px;
-				    right: 38px;  
-				    height: 2px;
-				    background-color: white;
-				  }
-				}
-				&:active {
-					opacity: .3;
-					&::after{
-				    display: none;
-				  }
-				}
-			}
-		  li:last-child a:hover::after {
+  a {
+    .mixin-hover-color ();
+  }
+  .nav-menu {
+    @media (min-width: @screen_lg) {
+      a {
+        &:hover {
+          color: @color-light;
+          &::after{
+            content: "";
+            position: absolute;
+            bottom: 35px;
+            left: 38px;
+            right: 38px;  
+            height: 2px;
+            background-color: white;
+          }
+        }
+        &:active {
+          opacity: .3;
+          &::after{
+            display: none;
+          }
+        }
+      }
+      li:last-child a:hover::after {
         right: 0;
       }
-		}
-	}	
+    }
+  } 
 }
 
 .page-nav {
-	.logo-link {
-		.mixin-hover-svg ();
-	}
-	.nav-toggle {
-		.mixin-hover-svg ();
-	}
+  .logo-link {
+    .mixin-hover-svg ();
+  }
+  .nav-toggle {
+    .mixin-hover-svg ();
+  }
 }
 
 .effect-link, .post-body a {
-	&:hover {
-		color: @color-dark;
-	}
-	&:active {
-		opacity: .3;
-		text-decoration: none;
-	}
+  &:hover {
+    color: @color-dark;
+  }
+  &:active {
+    opacity: .3;
+    text-decoration: none;
+  }
 }
 
 .btn-download {
-	.mixin-hover-color ();
-	&:hover {
-		background: @color-light;
-	}
+  .mixin-hover-color ();
+  &:hover {
+    background: @color-light;
+  }
 }
 
 .slider-pagination {
-	li {
-		&:hover {
-			background-color: fadein(@color-dark-alpha, 30%);
-		}
-		&:active {
-			background-color: fadeout(@color-dark-alpha, 20%);
-		}
-	}
+  li {
+    &:hover {
+      background-color: fadein(@color-dark-alpha, 30%);
+    }
+    &:active {
+      background-color: fadeout(@color-dark-alpha, 20%);
+    }
+  }
   .is-slide-active {
     background-color: transparent;
     border-color: @color-dark;
     &:hover, &:active {
-    	background-color: transparent;
+      background-color: transparent;
     }
   }
 }
 
 .slider-control{
-	div {
-		&:hover {
-			opacity: .6;
-		}
-		&:active {
-			opacity: .1;
-		}
-	}
+  div {
+    &:hover {
+      opacity: .6;
+    }
+    &:active {
+      opacity: .1;
+    }
+  }
 }
 
 .blog-pagination {
-	a {
-		&:hover {
-			border-color: @color-dark;
-		}
-		&:active {
-			color: @color-light;
-			background-color: @color-dark;
-		}
-	}
+  a {
+    &:hover {
+      border-color: @color-dark;
+    }
+    &:active {
+      color: @color-light;
+      background-color: @color-dark;
+    }
+  }
   .is-blog-active {
     border-color: @color-link;
     &:hover {
-			border-color: @color-link;
-		}
-		&:active {
-			color: @color-dark;
-			background-color: transparent;
-		}
+      border-color: @color-link;
+    }
+    &:active {
+      color: @color-dark;
+      background-color: transparent;
+    }
   }
 }
 
 input[type="checkbox"], input[type="radio"] {
   & + label {
-  	&:hover::before {
-	    border-color: @color-dark;
-	  }
-	  &:active::before {
-	    border-color: @color-link;
-	  }
+    &:hover::before {
+      border-color: @color-dark;
+    }
+    &:active::before {
+      border-color: @color-link;
+    }
   }
 }
 
 input[type="text"], input[type="date"] {
-	&:hover {
-		border-color: @color-dark;
-	}
-	&:focus {
-		outline: none;
-		border-color: @color-link;
-	}
+  &:hover {
+    border-color: @color-dark;
+  }
+  &:focus {
+    outline: none;
+    border-color: @color-link;
+  }
 }
 
 .comp-delete a {
-	.mixin-hover-color ();
-	&:hover {
-		text-decoration: underline;
-	}
-	&:active {
-		text-decoration: none;
-	}
+  .mixin-hover-color ();
+  &:hover {
+    text-decoration: underline;
+  }
+  &:active {
+    text-decoration: none;
+  }
 }
 
 .fotos-upload {  
   .btn-upload {
     &:hover {
-			border-color: @color-dark;								
-		}
-		&:active {
-			background-color: @color-dark;	
-			color: @color-light;
-		}
+      border-color: @color-dark;                
+    }
+    &:active {
+      background-color: @color-dark;  
+      color: @color-light;
+    }
   }  
 }
 
 .fotos-block {
-	.foto-delete {
-		&:hover {
-			border-color: @color-dark;
-			fill: @color-dark;					
-		}
-		&:active {
-			background-color: @color-dark;	
-			fill: @color-light;
-		}
-	}
+  .foto-delete {
+    &:hover {
+      border-color: @color-dark;
+      fill: @color-dark;          
+    }
+    &:active {
+      background-color: @color-dark;  
+      fill: @color-light;
+    }
+  }
 }
 
 .btn-submit {
-	&:hover {
-		background-color: @color-btn-hover;
-	}
-	&:active {
-		color: fade(@color-light, 30%);
-	}
+  &:hover {
+    background-color: @color-btn-hover;
+  }
+  &:active {
+    color: fade(@color-light, 30%);
+  }
 }
 
 .footer-contacts {
-	a {
-		&:hover {
-			color: @color-dark;
-			text-decoration: underline;
-		}
-		&:active {
-			color: @color-dark-alpha;
-			text-decoration: none;
-		}
-	}
+  a {
+    &:hover {
+      color: @color-dark;
+      text-decoration: underline;
+    }
+    &:active {
+      color: @color-dark-alpha;
+      text-decoration: none;
+    }
+  }
 }
 
 .footer-logo {
-	.mixin-hover-svg ();
+  .mixin-hover-svg ();
 }
 
 .footer-social {
-	a {
-		.mixin-hover-color ();
-		&:hover {
-			border-color: @color-dark;
-		}
-		&:active {
-			border-color: @color-dark-alpha;
-			opacity: .3;
-		}
-	}
+  a {
+    .mixin-hover-color ();
+    &:hover {
+      border-color: @color-dark;
+    }
+    &:active {
+      border-color: @color-dark-alpha;
+      opacity: .3;
+    }
+  }
 }
 
 .footer-create {  
   .create-btn {
     &:hover {
-    	fill: @color-dark;
+      fill: @color-dark;
     }
     &:active {
-    	opacity: .3;
+      opacity: .3;
     }
   }
 }
