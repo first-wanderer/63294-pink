@@ -84,8 +84,12 @@
               <input type="date" name="date-out" value="2015-04-01" required>
               <label>дата выезда</label>
             </div>
-            <div class="input-text input-range label-bottom">
-              <input type="text" name="duration" value="10 дней" required>
+            <div class="input-text label-bottom">
+              <div class="input-range">                
+                <input type="text" name="duration" value="10" required>
+                <span class="range-minus">&minus;</span>
+                <span class="range-plus">+</span>
+              </div>              
               <label>продолжительность</label>
             </div>
             <div class="input-text label-bottom">
@@ -96,8 +100,12 @@
         </fieldset>
         <fieldset class="form-block form-invert ">
           <legend class="title-block">Количество попутчиков *</legend>
-          <div class="input-text input-range border-bottom">
-            <input type="text" name="comp-amount" value="2 чел" required>
+          <div class="input-text border-bottom">
+            <div class="input-range">              
+              <input type="text" name="comp-amount" value="2" required>
+              <span class="range-minus">&minus;</span>
+              <span class="range-plus">+</span>
+            </div>
           </div>
 
           <div class="comp form-flex-sm">

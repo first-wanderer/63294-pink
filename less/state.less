@@ -129,6 +129,23 @@ input[type="text"], input[type="date"] {
   }
 }
 
+.input-range {
+  input {
+    &:hover {
+      z-index: 10;
+    }
+  }
+  span {
+    &:hover {
+      border-color: @color-dark;
+    }
+    &:active{
+      background: @color-dark;
+      color: @color-light;
+    }
+  }
+}
+
 .comp-delete a {
   .mixin-hover-color ();
   &:hover {

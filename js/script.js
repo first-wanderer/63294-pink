@@ -18,37 +18,40 @@ function initialize() {
 
 google.maps.event.addDomListener(window, "load", initialize);
 
-//AJAX отправка формы
+
+//Изменение значений числовых полей
 (function(){
-	if (!("FormData" in window)) {
-		return;
-	};
+  var elements = document.querySelectorAll(".input-range");
 
-	var form = document.querySelector("#form-contest");
-	
-	form.addEventListener("submit", function(event) {
-		event.preventDefault();
+  for (var i = 0; i < elements.length; i++) {
+    initRange(elements[i]);
+  };
 
-		var data = new FormData(form);
+  function initRange(parent) {
+    var input = parent.querySelector("input");
+    var minus = parent.querySelector(".range-minus");
+    var plus = parent.querySelector(".range-plus");
 
-		request(data, function(response) {
-			console.log(response);
-		});
-	});
+    minus.addEventListener("click", function() {
+      changeRange(false);
+    });
+    plus.addEventListener("click", function() {
+      changeRange(true);
+    });
 
-	function request(data, fn) {
-		var xhr = new XMLHttpRequest();
-		var time = (new Date()).getTime();
+    function changeRange(operation) {
+      var value = Number(input.value);
+      
+      if (isNaN(value) || value < 1) {
+        value = 1;
+      };
 
-		xhr.open("post", "http://simonenko.su/academy/echo?" + time);
-
-		xhr.addEventListener("readystatechange", function() {
-			if (xhr.readyState == 4) {
-				fn(xhr.responseText);
-			};
-		});
-
-		xhr.send(data);
-	};
+      if (operation) {
+        input.value = value + 1;
+      } else {
+        input.value = value - 1;
+      };
+    };
+  };
 
 })();

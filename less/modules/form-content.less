@@ -30,8 +30,39 @@
   }
 }
 
-.input-range.border-bottom {
+.input-range {
+  position: relative;
+  box-sizing: border-box;
+  padding-right: 54px;
+  padding-left: 54px;
   input {
+    padding-left: 45%;
+    position: relative;
+  }
+  span {
+    position: absolute;
+    top: 0;
+    box-sizing: border-box;
+    height: 100%;
+    width: 56px;
+    border: 2px solid @color-border;
+    border-radius: 2px;
+    background: @color-light;
+    font-size: 50px;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+  }
+  .range-minus {
+    left: 0;
+  }
+  .range-plus {
+    right: 0;
+  }
+}
+
+.input-text.border-bottom {
+  .input-range {
     @media (min-width: @screen_md) {
       width: 50%;
     }
