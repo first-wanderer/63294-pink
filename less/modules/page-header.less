@@ -29,6 +29,7 @@
 }
 
 .page-nav {
+  position: relative;
   background: @bg-c-nav;
   .logo-link {
     float: left;  
@@ -70,44 +71,37 @@
     height: 24px;    
     padding-top: 20px;
     padding-bottom: 20px;
+    width: 50px;
+    span {
+      &:nth-child(1) {
+        display: inline;
+      }
+      &:nth-child(2) {
+        display: none;
+      }
+    }
     @media (min-width: @screen_md) {
       padding-top: 40px;
       padding-bottom: 40px;
     }
     @media (min-width: @screen_lg) {
       display: none;
-    }
-    &.close-menu {
-      width: 50px;
-      span {
-        &:nth-child(1) {
-          display: inline;
-        }
-        &:nth-child(2) {
-          display: none;
-        }
-      }
-    }
-    &.open-menu {
-      width: 24px;
-      span {
-        &:nth-child(1) {
-          display: none;
-        }
-        &:nth-child(2) {
-          display: inline;
-        }
-      }
-    }
+    }    
   }
   .nav-menu {
     display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
     list-style: none;
     margin: 0;
     padding: 0;
+    z-index: 100;
     @media (min-width: @screen_lg) {
       display: block;
       float: right;
+      position: static;
       li {
         display: inline-block;
         vertical-align: top;
@@ -136,6 +130,7 @@
     }
   }
 }
+
 
 .header-intro {
   h1 {

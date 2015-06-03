@@ -97,4 +97,26 @@
     }
   })();
 
+  //Переключение видимости навигационного меню
+  (function(){
+    var toggleMenu = document.querySelector('.nav-toggle');
+    var navMenu = document.querySelector('.page-nav');
+
+    toggleMenu.addEventListener('click', function(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      navMenu.classList.toggle('nav-menu-show');
+    });
+
+    document.addEventListener('click', function() {
+      if (navMenu.classList.contains('nav-menu-show')) {
+        navMenu.classList.remove('nav-menu-show');        
+      }      
+    });    
+  })();
+
+
+
+  
+
 }());
