@@ -102,43 +102,13 @@
           <legend class="title-block">Количество попутчиков *</legend>
           <div class="input-text border-bottom">
             <div class="input-range">              
-              <input type="text" name="comp-amount" value="2" required>
+              <input type="text" name="comp-amount" value="2" id="comp-field" required>
               <span class="range-minus">&minus;</span>
               <span class="range-plus">+</span>
             </div>
           </div>
 
-          <div class="comp form-flex-sm">
-            <div class="comp-number">
-              <div>№</div>
-              <div>1</div>
-            </div>
-            <div class="input-text">
-              <label for="comp-name-1">Имя:*</label>
-              <input type="text" id="comp-name-1" name="comp-name-1" placeholder="Введите ваше имя" required>
-            </div>
-            <div class="input-text">
-              <label for="comp-byname-1">Прозвище:</label>
-              <input type="text" id="comp-byname-1" name="comp-byname-1" placeholder="Ну как же без этого!">
-            </div>
-            <div class="comp-delete"><a href="#">Удалить</a></div>
-          </div>
-
-          <div class="comp form-flex-sm">
-            <div class="comp-number">
-              <div>№</div>
-              <div>2</div>
-            </div>
-            <div class="input-text">
-              <label for="comp-name-2">Имя:*</label>
-              <input type="text" id="comp-name-2" name="comp-name-2" placeholder="Введите ваше имя" required>
-            </div>
-            <div class="input-text">
-              <label for="comp-byname-2">Прозвище:</label>
-              <input type="text" id="comp-byname-2" name="comp-byname-2" placeholder="Ну как же без этого!">
-            </div>
-            <div class="comp-delete"><a href="#">Удалить</a></div>
-          </div>
+          <div class="comps-block"></div>          
         </fieldset>
         <fieldset class="form-block">
           <legend class="title-block">Ваши безбашенные достижения в путешествии</legend>
@@ -173,15 +143,9 @@
           <legend class="title-block">Ваши фотографии из поездки *</legend>          
           <label class="fotos-upload">
             <span class="btn-upload">Загрузить фото</span>            
-            <input type="file" name="fotos" multiple>
+            <input type="file" name="fotos" id="foto-upload" multiple>
           </label>
-          <div class="fotos-block border-top">
-            <div class="foto-template">
-              <div class="foto-delete svg-cross_delete">x</div>
-              <img src="img/img-foto-template.jpg" height="68" width="68" alt="foto">
-              <div class="foto-name">Img-1.jpg</div>
-            </div>
-          </div>
+          <div class="fotos-block border-top flex-form-foto"></div>
         </fieldset>
         <div class="form-submit clearfix">
           <button type="submit" class="btn-submit">Отправить форму</button>
@@ -227,8 +191,32 @@
     </div>
   </div> -->
 
-  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;signed_in=true"></script>
+  <script id="comp-template" type="text/html">    
+    <div class="comp-number">
+      <div>№</div>
+      <div>{{comp-i}}</div>
+    </div>
+    <div class="input-text">
+      <label for="comp-name-{{comp-i}}">Имя:*</label>
+      <input type="text" id="comp-name-{{comp-i}}" name="comp-name-{{comp-i}}" placeholder="Введите ваше имя" required>
+    </div>
+    <div class="input-text">
+      <label for="comp-byname-{{comp-i}}">Прозвище:</label>
+      <input type="text" id="comp-byname-{{comp-i}}" name="comp-byname-{{comp-i}}" placeholder="Ну как же без этого!">
+    </div>
+    <div class="comp-delete"><a href="#">Удалить</a></div>
+  </script>
+
+  <script id="foto-template" type="text/html">    
+    <div class="foto-delete svg-cross_delete">x</div>
+    <img src="{{image}}" alt="{{name}}">
+    <div class="foto-name">{{name}}</div>    
+  </script>
+
   <script src="js/SVGinject.js"></script>
+  <script src="bower_components/picturefill/dist/picturefill.min.js"></script>
+  <script src="bower_components/mustache.js/mustache.min.js"></script>
+  <script src="bower_components/moment/min/moment.min.js"></script>
   <script src="js/script.js"></script>
   
 </body>

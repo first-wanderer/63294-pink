@@ -213,6 +213,15 @@
   }
 }
 
+.flex-form-foto {
+  .mixin-flex-row-wrap ();
+  justify-content: flex-start;
+  & > div {
+    flex-shrink: 0;
+    flex-grow: 0;
+  }
+}
+
 .footer-contacts {
   .flex-container {
     @media (min-width: @screen_md) {

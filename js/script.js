@@ -1,33 +1,54 @@
 (function() {
 'use strict';
 
-  //добавление интерактивной карты
+  //Переключение видимости навигационного меню  
+  var toggleMenu = document.querySelector('.nav-toggle');
+  var navMenu = document.querySelector('.page-nav');
+
+  toggleMenu.addEventListener('click', function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    navMenu.classList.toggle('nav-menu-show');
+  });
+
+  document.addEventListener('click', function() {
+    if (navMenu.classList.contains('nav-menu-show')) {
+      navMenu.classList.remove('nav-menu-show');        
+    }      
+  });
+
+  //добавление интерактивной карты  
+  function initialize() {  
+    var centerLatlng = new google.maps.LatLng(59.938910, 30.323031);
+    var mapOptions = {
+      zoom: 17,
+      center: centerLatlng
+    };
+    var map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
+    
+    var image = 'img/map-marker.svg';
+    var myLatlng = new google.maps.LatLng(59.938641, 30.323010);
+    new google.maps.Marker({
+        position: myLatlng,
+        map: map,      
+        icon: image
+    });
+  }
+
+  if(document.querySelector('#google-map')) {
+    google.maps.event.addDomListener(window, 'load', initialize);
+  }  
+  
+  //работа с формой
+  var form = document.querySelector('#form-contest');
+
   (function(){
-    function initialize() {  
-      var centerLatlng = new google.maps.LatLng(59.938910, 30.323031);
-      var mapOptions = {
-        zoom: 17,
-        center: centerLatlng
-      };
-      var map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
-      
-      var image = 'img/map-marker.svg';
-      var myLatlng = new google.maps.LatLng(59.938641, 30.323010);
-      new google.maps.Marker({
-          position: myLatlng,
-          map: map,      
-          icon: image
-      });
+    if (!(form)) {
+      return;
     }
 
-    if(document.querySelector('#google-map')) {
-      google.maps.event.addDomListener(window, 'load', initialize);
-    }  
-  })();
-
-  //Изменение значений числовых полей
-  (function(){
-    var elements = document.querySelectorAll('.input-range');
+    //Изменение значений числовых полей  
+    var elements = form.querySelectorAll('.input-range');
 
     function initRange(parent) {
       var input = parent.querySelector('input');
@@ -58,65 +79,137 @@
 
     for (var i = 0; i < elements.length; i++) {
       initRange(elements[i]);
-    }    
-  })();
-
-  //AJAX отправка формы
-  (function(){
-    if (!('FormData' in window)) {
-      return;
     }
 
-    var form = document.querySelector('#form-contest');
+    
+    //рендеринг компаньонов в форме
+    var compField = form.querySelector('#comp-field');
+    var compTemplate = document.querySelector('#comp-template').innerHTML;
+    var compArea = form.querySelector('.comps-block');
 
-    function request(data, fn) {
-      var xhr = new XMLHttpRequest();
-      var time = (new Date()).getTime();
+    function compChange() { 
+      var compValue = Number(compField.value);
+      compArea.innerHTML = '';
+      for (var i = 0; i < compValue; i++) {
+        compGenerator(i+1);
+      } 
+    }
 
-      xhr.open('post', 'http://simonenko.su/academy/echo?' + time);
-
-      xhr.addEventListener('readystatechange', function() {
-        if (xhr.readyState == 4) {
-          fn(xhr.responseText);
-        }
+    function compGenerator(i) { 
+      var html = Mustache.render(compTemplate, {
+        'comp-i': i
       });
 
-      xhr.send(data);
+      var item = document.createElement('div');
+      item.classList.add('comp', 'form-flex-sm');
+      item.innerHTML = html;
+
+      compArea.appendChild(item);
+
+      item.querySelector('.comp-delete').addEventListener('click', function(event) {
+        event.preventDefault();
+        compRemove(item);
+      });
     }
+
+    function compRemove(item) {      
+      item.parentNode.removeChild(item);
+      compField.value = compField.value - 1;
+    }
+
+    compChange();
+
+    compField.addEventListener('change', function() {
+      compChange();
+    });    
+
+
+    //обработка фото и AJAX отправка формы
+    (function(){
+      if (!('FormData' in window) || !('FileReader' in window)) {
+        return;
+      }
     
-    if (form) {
+      var area = form.querySelector('.fotos-block');
+      var template = document.querySelector('#foto-template').innerHTML;
+      var queue = [];
+
+      function request(data, fn) {
+        var xhr = new XMLHttpRequest();
+        var time = (new Date()).getTime();
+
+        xhr.open('post', 'http://simonenko.su/academy/echo?' + time);
+
+        xhr.addEventListener('readystatechange', function() {
+          if (xhr.readyState == 4) {
+            fn(xhr.responseText);
+          }
+        });
+
+        xhr.send(data);
+      }
+
+      function preview(file) { 
+        if (file.type.match(/image.*/)) {
+          var reader = new FileReader();
+
+          reader.addEventListener('load', function(event) {
+            var html = Mustache.render(template, {
+              'image': event.target.result,
+              'name': file.name
+            });
+
+            var item = document.createElement('div');
+            item.classList.add('foto-item');
+            item.innerHTML = html;
+
+            area.appendChild(item);
+
+            item.querySelector('.foto-delete').addEventListener('click', function(event) {
+              event.preventDefault();
+              removePreview(item);
+            });
+
+            queue.push({
+              'file': file,
+              'item': item
+            });
+          });
+
+          reader.readAsDataURL(file);
+        }
+      }
+
+      function removePreview(item) {
+        queue = queue.filter(function(element) {
+          return element.item != item;
+        });
+        
+        item.parentNode.removeChild(item);
+      }
+
+      form.querySelector('#foto-upload').addEventListener('change', function() {
+        var files = this.files;
+        for (var i = 0; i < files.length; i++) {
+          preview(files[i]);
+        }
+        this.value = '';
+      });
+      
       form.addEventListener('submit', function(event) {
         event.preventDefault();
 
         var data = new FormData(form);
 
+        queue.forEach(function(element) {
+          data.append('images', element.file);
+        });
+
         request(data, function(response) {
           console.log(response);
         });
-      });
-    }
-  })();
-
-  //Переключение видимости навигационного меню
-  (function(){
-    var toggleMenu = document.querySelector('.nav-toggle');
-    var navMenu = document.querySelector('.page-nav');
-
-    toggleMenu.addEventListener('click', function(event) {
-      event.preventDefault();
-      event.stopPropagation();
-      navMenu.classList.toggle('nav-menu-show');
-    });
-
-    document.addEventListener('click', function() {
-      if (navMenu.classList.contains('nav-menu-show')) {
-        navMenu.classList.remove('nav-menu-show');        
-      }      
-    });    
-  })();
-
-
-
+      });    
+    })(); 
+  }());
   
-
 }());
