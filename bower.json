@@ -1,0 +1,10 @@
+{
+  "name": "63294-pink",
+  "version": "0.0.0",  
+  "dependencies": {
+    "moment": "~2.10.3",
+    "mustache.js": "~2.0.0",
+    "normalize-less": "*",
+    "picturefill": "~2.3.1"
+  }
+}

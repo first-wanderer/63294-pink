@@ -305,3 +305,36 @@
   color: @color-light;
   background-color: @color-btn;
 }
+
+.modal-up {
+  display: none;
+  position: fixed;
+  top: 50%;
+  margin-top: -145px;
+  padding: 40px 20px 10px;  
+  background-color: @color-light;
+  text-align: center;  
+  box-shadow: 0 2px 15px fade(@color-black, 30%);
+  @media (min-width: @screen_md) {    
+    left: 50%;
+    margin-left: -230px;
+    margin-top: -195px;
+    width: 300px;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+  .modal-title {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 1.29rem;
+    @media (min-width: @screen_md) {    
+      font-size: 2.14rem;
+    }
+  }
+  .modal-text {
+    margin-bottom: 35px;
+    @media (min-width: @screen_md) {    
+      font-size: 1.29rem;
+    }
+  }
+}

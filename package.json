@@ -28,6 +28,7 @@
     "grunt-sass": "^0.18.1"
   },
   "devDependencies": {
+    "grunt-bower-install-simple": "^1.1.3",
     "grunt-svg-sprite": "^1.1.2",
     "grunt-svginject": "0.0.2",
     "grunt-svgmin": "^2.0.1",

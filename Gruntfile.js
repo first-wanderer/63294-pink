@@ -8,6 +8,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-lintspaces');  
   grunt.loadNpmTasks('grunt-svginject');
   grunt.loadNpmTasks('grunt-svgmin');
+  grunt.loadNpmTasks("grunt-bower-install-simple");
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -72,6 +73,23 @@ module.exports = function(grunt) {
       }
     },
 
+    "bower-install-simple": {
+        options: {
+            color: true,
+            directory: "bower_components"
+        },
+        "prod": {
+            options: {
+                production: true
+            }
+        },
+        "dev": {
+            options: {
+                production: false
+            }
+        }
+    },
+
     clean: {
       gosha: [
         'gosha/img/README',
@@ -81,6 +99,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('test', ['lintspaces:test']);
+  grunt.registerTask("bower-install", [ "bower-install-simple" ]);
 
   if (grunt.file.exists(__dirname, 'less', 'style.less')) {
     grunt.registerTask('gosha', ['less:style', 'copy:gosha', 'clean:gosha']);

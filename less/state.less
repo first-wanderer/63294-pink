@@ -106,6 +106,10 @@
     &:active {
       opacity: .1;
     }
+    &.disabled {
+      opacity: .1;
+      cursor: default;
+    }
   }
 }
 
@@ -204,13 +208,17 @@ input[type="text"], input[type="date"] {
   }
 }
 
-.btn-submit {
+.btn-submit, .btn-close {
   &:hover {
     background-color: @color-btn-hover;
   }
   &:active {
     color: fade(@color-light, 30%);
   }
+}
+
+.modal-up-show {
+  display: block;  
 }
 
 .footer-contacts {

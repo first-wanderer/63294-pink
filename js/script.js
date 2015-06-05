@@ -17,6 +17,92 @@
     }      
   });
 
+
+  //оживление слайдеров
+  var tableSlider = document.querySelector('.slider-price');
+  var reviewSlider = document.querySelector('.slider-reviews');
+  
+  (function(){
+    if (!(tableSlider) && !(reviewSlider)) {
+      return;
+    }
+
+    function resetActive (slidePoint) {
+      for (var i = 0; i < slidePoint.length; i++) {
+        slidePoint[i].classList.remove('is-slide-active');
+      }
+    }
+
+    function initPos (i, slidePoint, slideObject, step) {
+      slidePoint[i].addEventListener('click', function() {        
+        slideObject.style.left = step*i + '%';
+        resetActive (slidePoint);
+        this.classList.add('is-slide-active');
+      });
+    }
+
+    function moveControl(operation, slideObject, step, prev, next) {
+      var valuePos = parseInt(slideObject.style.left, 10);
+      
+      prev.classList.remove('disabled');
+      next.classList.remove('disabled');
+
+      if (isNaN(valuePos)) {
+        valuePos = 0;
+      }
+
+      if (operation) {
+        valuePos = valuePos + step;
+      } else {
+        valuePos = valuePos - step;
+      }
+
+      if ( valuePos >= 0) {
+        valuePos = 0;
+        prev.classList.add('disabled');
+      }
+      if ( valuePos <= 3*step-step) {
+        valuePos = 3*step-step;
+        next.classList.add('disabled');
+      }
+
+      slideObject.style.left = valuePos + '%';
+    }
+
+    //слайдер таблицы 
+    var slideTable = tableSlider.querySelector('.price-table');    
+    var pointTable = tableSlider.querySelectorAll('.slider-pagination li');
+    var stepTable = -85;    
+
+    for (var i = 0; i < pointTable.length; i++) {
+      initPos(i, pointTable, slideTable, stepTable);
+    }
+
+    //слайдер отзывов
+    var slideReview = reviewSlider.querySelector('.slider-wrap');    
+    var pointReview = reviewSlider.querySelectorAll('.slider-pagination li');
+    var stepReview = -100;
+
+
+    for (var i = 0; i < pointReview.length; i++) {
+      initPos(i, pointReview, slideReview, stepReview);
+    }
+
+    var slidePrev = reviewSlider.querySelector('.prev-btn');
+    var slideNext = reviewSlider.querySelector('.next-btn');    
+
+    slidePrev.addEventListener('click', function() {
+      moveControl(false, slideReview, stepReview, slidePrev, slideNext);
+    });
+    slideNext.addEventListener('click', function() {
+      moveControl(true, slideReview, stepReview, slidePrev, slideNext);
+    });
+
+  }());
+  
+
+
+
   //добавление интерактивной карты  
   function initialize() {  
     var centerLatlng = new google.maps.LatLng(59.938910, 30.323031);
@@ -47,39 +133,32 @@
       return;
     }
 
-    //Изменение значений числовых полей  
-    var elements = form.querySelectorAll('.input-range');
+    //закрытие модальных окон
+    var modalSuccess = document.querySelector('#reply-success');    
+    var btnClose = document.querySelectorAll('.btn-close');
 
-    function initRange(parent) {
-      var input = parent.querySelector('input');
-      var minus = parent.querySelector('.range-minus');
-      var plus = parent.querySelector('.range-plus');
-
-      minus.addEventListener('click', function() {
-        changeRange(false);
+    for (var i = 0; i < btnClose.length; i++) {
+      btnClose[i].addEventListener('click', function() {
+        this.parentNode.classList.remove('modal-up-show');
       });
-      plus.addEventListener('click', function() {
-        changeRange(true);
-      });
-
-      function changeRange(operation) {
-        var value = Number(input.value);
-        
-        if (isNaN(value) || value < 1) {
-          value = 1;
-        }
-
-        if (operation) {
-          input.value = value + 1;
-        } else {
-          input.value = value - 1;
-        }
-      }
     }
 
-    for (var i = 0; i < elements.length; i++) {
-      initRange(elements[i]);
+
+    //пересчет даты возвращения
+    var dateOut = form.querySelector('#date-out');
+    var duration = form.querySelector('#duration');
+    var dateIn = form.querySelector('#date-in');
+
+    function calcDate() {
+      dateIn.value = moment(dateOut.value).add(duration.value, 'days').format('YYYY-MM-DD');
     }
+    
+    dateOut.addEventListener('input', function() {
+      calcDate();
+    });
+    duration.addEventListener('input', function() {
+      calcDate();
+    });
 
     
     //рендеринг компаньонов в форме
@@ -119,9 +198,52 @@
 
     compChange();
 
-    compField.addEventListener('change', function() {
+    compField.addEventListener('input', function() {
       compChange();
-    });    
+    });
+
+
+    //Изменение значений числовых полей  
+    var elements = form.querySelectorAll('.input-range');    
+
+    function initRange(parent) {
+      var input = parent.querySelector('input');
+      var minus = parent.querySelector('.range-minus');
+      var plus = parent.querySelector('.range-plus');
+
+      function changeRange(operation) {
+        var value = Number(input.value);        
+        var idInpit = input.getAttribute('id');
+
+        if (isNaN(value) || value < 1) {
+          value = 1;
+        }
+
+        if (operation) {
+          input.value = value + 1;
+        } else {
+          input.value = value - 1;
+        }
+
+        if (idInpit == 'duration') {
+          calcDate();
+        }
+        if (idInpit == 'comp-field') {
+          compChange();
+        }
+      }
+
+      minus.addEventListener('click', function() {
+        changeRange(false);
+      });
+      plus.addEventListener('click', function() {
+        changeRange(true);
+      });      
+    }
+
+    for (var i = 0; i < elements.length; i++) {
+      initRange(elements[i]);
+    }
 
 
     //обработка фото и AJAX отправка формы
@@ -132,7 +254,7 @@
     
       var area = form.querySelector('.fotos-block');
       var template = document.querySelector('#foto-template').innerHTML;
-      var queue = [];
+      var queue = [];      
 
       function request(data, fn) {
         var xhr = new XMLHttpRequest();
@@ -207,9 +329,10 @@
 
         request(data, function(response) {
           console.log(response);
+          modalSuccess.classList.add('modal-up-show');
         });
       });    
     })(); 
-  }());
-  
+  }());  
+
 }());
