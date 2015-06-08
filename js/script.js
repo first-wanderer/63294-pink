@@ -27,80 +27,97 @@
       return;
     }
 
-    function resetActive (slidePoint) {
-      for (var i = 0; i < slidePoint.length; i++) {
-        slidePoint[i].classList.remove('is-slide-active');
+    function initPag(slidePoint, slideObject, step){
+      for (var i = 0; i < pointTable.length; i++) {
+        initPos(i, slidePoint, slideObject, step);
       }
     }
 
-    function initPos (i, slidePoint, slideObject, step) {
+    function resetActive(slidePoint) {
+      // for (var i = 0; i < slidePoint.length; i++) {
+      //   slidePoint[i].classList.remove('is-slide-active');
+      // }
+      [].forEach.call(slidePoint, function (el) {
+        el.classList.remove('is-slide-active');
+      });
+    }
+
+    function initPos(i, slidePoint, slideObject, step) {
       slidePoint[i].addEventListener('click', function() {        
-        slideObject.style.left = step*i + '%';
+        var posL = step*i;
+        slideObject.style.transform = 'translate3d(' + posL + '%,0,0)';        
         resetActive (slidePoint);
         this.classList.add('is-slide-active');
       });
     }
 
-    function moveControl(operation, slideObject, step, prev, next) {
-      var valuePos = parseInt(slideObject.style.left, 10);
+    //слайдер таблицы 
+    var slideTable = tableSlider.querySelector('.price-table');    
+    var pointTable = tableSlider.querySelectorAll('.slider-pagination li');   
+    var stepTable = -100/(pointTable.length)+2;      
+
+    initPag(pointTable, slideTable, stepTable);
+
+    window.addEventListener('resize', function() {      
+      if (window.matchMedia('(min-width: 660px)').matches) {
+        slideTable.style.transform = 'translate3d(0,0,0)';
+        resetActive (pointTable);
+        pointTable[0].classList.add('is-slide-active');
+      }
+    });
+
+    //слайдер отзывов
+    var slideReview = reviewSlider.querySelector('.slider-wrap');    
+    var pointReview = reviewSlider.querySelectorAll('.slider-pagination li');   
+    var stepReview = -100/(pointReview.length);
+
+    initPag(pointReview, slideReview, stepReview);
+
+    var slidePrev = reviewSlider.querySelector('.prev-btn');
+    var slideNext = reviewSlider.querySelector('.next-btn');
+
+    function moveControl(operation) {      
+      var valuePos = slideReview.style.transform;
+
+      valuePos = valuePos.substring(12, valuePos.length);      
+      valuePos = parseFloat(valuePos);
       
-      prev.classList.remove('disabled');
-      next.classList.remove('disabled');
+      
+      slidePrev.classList.remove('disabled');
+      slideNext.classList.remove('disabled');
 
       if (isNaN(valuePos)) {
         valuePos = 0;
       }
 
       if (operation) {
-        valuePos = valuePos + step;
+        valuePos = valuePos + stepReview;
+        valuePos = Math.floor(valuePos * 1e5)/1e5;
       } else {
-        valuePos = valuePos - step;
+        valuePos = valuePos - stepReview;
+        valuePos = Math.ceil(valuePos * 1e5)/1e5;
       }
 
       if ( valuePos >= 0) {
         valuePos = 0;
-        prev.classList.add('disabled');
+        slidePrev.classList.add('disabled');
       }
-      if ( valuePos <= 3*step-step) {
-        valuePos = 3*step-step;
-        next.classList.add('disabled');
+      if ( valuePos <= -100-stepReview) {
+        valuePos = -100-stepReview;
+        slideNext.classList.add('disabled');
       }
-
-      slideObject.style.left = valuePos + '%';
+      
+      slideReview.style.transform = 'translate3d(' + valuePos + '%,0,0)';
     }
-
-    //слайдер таблицы 
-    var slideTable = tableSlider.querySelector('.price-table');    
-    var pointTable = tableSlider.querySelectorAll('.slider-pagination li');
-    var stepTable = -85;    
-
-    for (var i = 0; i < pointTable.length; i++) {
-      initPos(i, pointTable, slideTable, stepTable);
-    }
-
-    //слайдер отзывов
-    var slideReview = reviewSlider.querySelector('.slider-wrap');    
-    var pointReview = reviewSlider.querySelectorAll('.slider-pagination li');
-    var stepReview = -100;
-
-
-    for (var i = 0; i < pointReview.length; i++) {
-      initPos(i, pointReview, slideReview, stepReview);
-    }
-
-    var slidePrev = reviewSlider.querySelector('.prev-btn');
-    var slideNext = reviewSlider.querySelector('.next-btn');    
 
     slidePrev.addEventListener('click', function() {
-      moveControl(false, slideReview, stepReview, slidePrev, slideNext);
+      moveControl(false);
     });
     slideNext.addEventListener('click', function() {
-      moveControl(true, slideReview, stepReview, slidePrev, slideNext);
+      moveControl(true);
     });
 
-  }());
-  
-
+  }());  
 
 
   //добавление интерактивной карты  
@@ -137,29 +154,27 @@
     var modalSuccess = document.querySelector('#reply-success');    
     var btnClose = document.querySelectorAll('.btn-close');
 
-    for (var i = 0; i < btnClose.length; i++) {
-      btnClose[i].addEventListener('click', function() {
+    [].forEach.call(btnClose, function (el) {
+      el.addEventListener('click', function() {
         this.parentNode.classList.remove('modal-up-show');
       });
-    }
-
+    });
 
     //пересчет даты возвращения
     var dateOut = form.querySelector('#date-out');
     var duration = form.querySelector('#duration');
+    var dateArray = [dateOut, duration];
     var dateIn = form.querySelector('#date-in');
 
     function calcDate() {
       dateIn.value = moment(dateOut.value).add(duration.value, 'days').format('YYYY-MM-DD');
     }
-    
-    dateOut.addEventListener('input', function() {
-      calcDate();
-    });
-    duration.addEventListener('input', function() {
-      calcDate();
-    });
 
+    dateArray.forEach(function(element) {
+      element.addEventListener('input', function() {
+        calcDate();
+      });
+    });
     
     //рендеринг компаньонов в форме
     var compField = form.querySelector('#comp-field');
@@ -184,11 +199,6 @@
       item.innerHTML = html;
 
       compArea.appendChild(item);
-
-      item.querySelector('.comp-delete').addEventListener('click', function(event) {
-        event.preventDefault();
-        compRemove(item);
-      });
     }
 
     function compRemove(item) {      
@@ -200,6 +210,15 @@
 
     compField.addEventListener('input', function() {
       compChange();
+    });
+
+    compArea.addEventListener('click', function(event) {
+      var target = event.target;
+      if (target.tagName == 'A') {
+        event.preventDefault();
+        target = target.parentNode.parentNode;
+        compRemove(target);
+      }      
     });
 
 
@@ -215,15 +234,21 @@
         var value = Number(input.value);        
         var idInpit = input.getAttribute('id');
 
-        if (isNaN(value) || value < 1) {
-          value = 1;
+        if (isNaN(value) || value < 0) {
+          value = 0;
         }
 
         if (operation) {
-          input.value = value + 1;
+          value = value + 1;
         } else {
-          input.value = value - 1;
+          value = value - 1;
         }
+
+        if (value < 0) {
+          value = 0;
+        }
+
+        input.value = value;
 
         if (idInpit == 'duration') {
           calcDate();
@@ -241,9 +266,9 @@
       });      
     }
 
-    for (var i = 0; i < elements.length; i++) {
-      initRange(elements[i]);
-    }
+    [].forEach.call(elements, function (el) {
+      initRange(el);
+    });
 
 
     //обработка фото и AJAX отправка формы

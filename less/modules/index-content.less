@@ -156,9 +156,9 @@
   }
   .slider-wrap {
     position: relative;
-    width: 300%;
-    left: 0;
-    transition: all .5s;
+    width: 300%;    
+    transform: translate3d(0px, 0px, 0px);
+    transition: transform .5s linear;
   }
   .slider-item {
     float: left;    
@@ -270,10 +270,12 @@
   text-transform: uppercase;
   position: relative;
   margin-bottom: 40px;
-  transition: all .5s;
-  @media (max-width: (@screen_md - 1)) {
-    width: 270%;
-    left: -85%;
+  width: 270%;
+  transform: translate3d(-31.33%, 0px, 0px);
+  transition: transform .5s linear;  
+  @media (min-width: @screen_md) {   
+    width: 100%;
+    transform: translate3d(0px, 0px, 0px);
   }
   tr {
     border-bottom: 2px solid @color-border;
