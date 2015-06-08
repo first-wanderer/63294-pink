@@ -1,14 +1,6 @@
 module.exports = function(grunt) {
 
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-sass');
-  grunt.loadNpmTasks('grunt-githooks');
-  grunt.loadNpmTasks('grunt-lintspaces');  
-  grunt.loadNpmTasks('grunt-svginject');
-  grunt.loadNpmTasks('grunt-svgmin');
-  grunt.loadNpmTasks("grunt-bower-install-simple");
+  require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -20,6 +12,72 @@ module.exports = function(grunt) {
         }
       }
     },
+
+    csscomb: {
+      options: {
+         config: 'csscomb.json'
+      },
+      style: {
+        expand: true,
+        src: ["less/**/*.less"]
+      }
+    },
+
+    autoprefixer: {    
+      options: {
+        browsers: ['last 2 version', 'ie 10']
+      },
+      style: {
+        src: 'css/style.css'
+      }
+    },
+
+    cmq: {
+      style: {
+        files: {
+          'css/style.css': ['css/style.css']
+        }
+      }
+    },
+
+    cssmin: {    
+      style: {
+        options: {
+          keepSpecialComments: 0,
+          report: 'gzip'
+        },      
+        files: {
+          'css/style.min.css': ['css/style.css']
+        }
+      }
+    },
+
+    imagemin: {
+      images: {
+        options: {
+          optimizationLevel: 3
+        },
+        files: [{
+          expand: true,
+          src: ["img/**/*.{png,jpg,gif,svg}"]
+        }]
+      }
+    },
+
+    htmlmin: {      
+      options: {
+        removeComments: true,
+        collapseWhitespace: true,
+        collapseBooleanAttributes: true,
+        caseSensitive: true,
+        keepClosingSlash: false
+      },
+      html: {
+        files: {
+        "index.min.html": "index.html"
+        }
+      }
+    }
 
     sass: {
       style: {
@@ -73,21 +131,21 @@ module.exports = function(grunt) {
       }
     },
 
-    "bower-install-simple": {
+    'bower-install-simple': {
+      options: {
+        color: true,
+        directory: 'bower_components'
+      },
+      'prod': {
         options: {
-            color: true,
-            directory: "bower_components"
-        },
-        "prod": {
-            options: {
-                production: true
-            }
-        },
-        "dev": {
-            options: {
-                production: false
-            }
+          production: true
         }
+      },
+      'dev': {
+        options: {
+          production: false
+        }
+      }
     },
 
     clean: {
@@ -99,7 +157,14 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('test', ['lintspaces:test']);
-  grunt.registerTask("bower-install", [ "bower-install-simple" ]);
+  grunt.registerTask('bower-install', [ 'bower-install-simple' ]);
+
+  grunt.registerTask('build', [
+    'less',
+    'autoprefixer',
+    'cmq',
+    'cssmin'
+  ]);
 
   if (grunt.file.exists(__dirname, 'less', 'style.less')) {
     grunt.registerTask('gosha', ['less:style', 'copy:gosha', 'clean:gosha']);
