@@ -77,7 +77,7 @@ module.exports = function(grunt) {
         "index.min.html": "index.html"
         }
       }
-    }
+    },
 
     sass: {
       style: {
@@ -131,22 +131,22 @@ module.exports = function(grunt) {
       }
     },
 
-    'bower-install-simple': {
-      options: {
-        color: true,
-        directory: 'bower_components'
-      },
-      'prod': {
-        options: {
-          production: true
-        }
-      },
-      'dev': {
-        options: {
-          production: false
-        }
-      }
-    },
+    // 'bower-install-simple': {
+    //   options: {
+    //     color: true,
+    //     directory: 'bower_components'
+    //   },
+    //   'prod': {
+    //     options: {
+    //       production: true
+    //     }
+    //   },
+    //   'dev': {
+    //     options: {
+    //       production: false
+    //     }
+    //   }
+    // },
 
     clean: {
       gosha: [
@@ -157,7 +157,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('test', ['lintspaces:test']);
-  grunt.registerTask('bower-install', [ 'bower-install-simple' ]);
+  // grunt.registerTask('bower-install', [ 'bower-install-simple' ]);
 
   grunt.registerTask('build', [
     'less',
