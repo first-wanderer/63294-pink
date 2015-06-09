@@ -102,6 +102,7 @@
         valuePos = 0;
         slidePrev.classList.add('disabled');
       }
+
       if ( valuePos <= -100-stepReview) {
         valuePos = -100-stepReview;
         slideNext.classList.add('disabled');
