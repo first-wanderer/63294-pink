@@ -1,11 +1,11 @@
 module.exports = function(grunt) {
 
   grunt.config('jscs', {
-    src: 'source/js/script.js',
+    src: ['Gruntfile.js', 'grunt/**/*.js', 'sourse/js/script.js'],
     options: {
-      preset: 'google',        
-      requireCurlyBraces: [ 'if' ]
+      preset: 'google',
+      requireCurlyBraces: ['if']
     }
   });
- 
+
 };

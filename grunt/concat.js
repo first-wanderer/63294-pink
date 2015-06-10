@@ -11,5 +11,5 @@ module.exports = function(grunt) {
       dest: 'build/js/libs.js',
     }
   });
- 
+
 };

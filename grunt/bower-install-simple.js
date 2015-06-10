@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
 
   grunt.config('bower-install-simple', {
-   options: {
+    options: {
       color: true,
       directory: 'bower_components'
     },
@@ -16,5 +16,5 @@ module.exports = function(grunt) {
       }
     }
   });
- 
+
 };

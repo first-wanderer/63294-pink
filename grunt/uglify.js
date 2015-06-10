@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
 
   grunt.config('uglify', {
-   libs: {
+    libs: {
       src: 'build/js/libs.js',
       dest: 'build/js/libs.min.js'
     },
@@ -10,5 +10,5 @@ module.exports = function(grunt) {
       dest: 'build/js/script.min.js'
     }
   });
- 
+
 };

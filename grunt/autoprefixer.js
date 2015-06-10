@@ -8,5 +8,5 @@ module.exports = function(grunt) {
       src: 'build/css/style.css'
     }
   });
- 
+
 };

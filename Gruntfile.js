@@ -4,7 +4,7 @@ module.exports = function(grunt) {
   require('time-grunt')(grunt);
 
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),   
+    pkg: grunt.file.readJSON('package.json'),
 
     sass: {
       style: {
@@ -38,8 +38,14 @@ module.exports = function(grunt) {
   grunt.loadTasks('grunt');
 
   grunt.registerTask('test', ['lintspaces:test']);
-  grunt.registerTask('bower-install', [ 'bower-install-simple' ]);
-  grunt.registerTask('build', [    
+  grunt.registerTask('bower-install', ['bower-install-simple']);
+  grunt.registerTask('combing', [
+    // 'csscomb',
+    'jshint',
+    'jscs'
+  ]);
+  grunt.registerTask('build', [
+    'combing',
     'clean:build',
     'copy:build',
     'less',
@@ -47,15 +53,11 @@ module.exports = function(grunt) {
     'cmq',
     'cssmin',
     'imagemin',
+    'svgmin',
     'svginject',
     'concat',
     'uglify:libs',
     'uglify:script'
-  ]);
-  grunt.registerTask('combing', [    
-    'csscomb',
-    'jshint',
-    'jscs'
   ]);
 
   if (grunt.file.exists(__dirname, 'less', 'style.less')) {

@@ -4,9 +4,9 @@ module.exports = function(grunt) {
     all : {
       options: {},
       files: {
-         'source/js/SVGinject.js': ['build/img/use-svg/*.svg'],
+        'source/js/SVGinject.js': ['build/img/use-svg/*.svg'],
       }
     }
   });
- 
+
 };
